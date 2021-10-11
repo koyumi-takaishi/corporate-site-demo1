@@ -1,5 +1,5 @@
 <?php get_header(); ?>
 
-<p class="p-test">フロントページ</p>
+<p class="p-test">ブログアーカイブ</p>
 
 <?php get_footer(); ?>
