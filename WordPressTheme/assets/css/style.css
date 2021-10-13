@@ -436,6 +436,11 @@ select {
 	font-size: 1.25rem;
 }
 
+.p-test-content {
+	border: 1px solid red;
+	padding: 6.25rem 1.25rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
 
 html:focus-within {

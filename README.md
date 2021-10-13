@@ -23,4 +23,3 @@
 - npx gulp で起動
 # wp-flocss-rem-fromSP
 # wp-flocss-rem-fromSP
-# corporate-site-demo1
