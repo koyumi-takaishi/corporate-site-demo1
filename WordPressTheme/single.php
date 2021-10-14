@@ -24,9 +24,20 @@
           <!-- 記事のタイトル表示 -->
           <h2 class="article_title"><?php the_title(); ?></h2>
           <div class="article_meta">
+
+          <!-- カテゴリー表示（投稿タイプがブログだったらリンク表示、そうでなければテキストで） -->
+          <?php if (is_singular('blog')): ?>
+            <?php
+            $terms = get_the_terms($post->ID,'blog_category');
+            foreach( $terms as $term ) {
+            echo '<a href="'.get_term_link($term->slug,'blog_category').'">'.$term->name.'</a>';
+            }
+            ?>
+          <?php else: ?>
             <!-- 記事が属するカテゴリーを表示 -->
             <?php $category = get_the_category(); ?>
             <span><?php echo $category[0]->cat_name; ?></span>
+          <?php endif; ?>
             <!-- 記事の投稿時刻を表示 -->
             <time class="news_time" datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y年m月d日'); ?></time>
           </div>
@@ -45,8 +56,12 @@
         <div class="postLinks">
           <!-- 前後のページへのリンクを表示する（パラメーターは表示したい文字） -->
           <div class="postLink postLink-prev"><?php previous_post_link('%link', 'PREV'); ?></div>
-          <!-- ニュース一覧へ -->
-          <a href="/news/">一覧</a>
+          <!-- 一覧へ -->
+          <?php if (is_singular('blog')): ?>
+            <a href="/blog/">一覧</a>
+          <?php else: ?>
+            <a href="/news/">一覧</a>
+          <?php endif; ?>
           <!-- 前後のページへのリンクを表示する（パラメーターは表示したい文字） -->
           <div class="postLink postLink-next"><?php previous_post_link('%link', 'NEXT'); ?></div>
         </div>
@@ -56,7 +71,58 @@
   <?php endif; ?>
 
 
-  <!-- ****************関連記事**************** -->
+  
+  <?php if (is_singular('blog')): ?>
+    <!-- ****************関連記事（ブログ）**************** -->
+    
+    <?php // 現在表示されている投稿と同じタームに分類された投稿を取得
+      $taxonomy_slug = 'blog_category'; // タクソノミーのスラッグを指定
+      $post_type_slug = 'blog'; // 投稿タイプのスラッグを指定
+      $post_terms = wp_get_object_terms($post->ID, $taxonomy_slug); // タクソノミーの指定
+      if( $post_terms && !is_wp_error($post_terms)) { // 値があるときに作動
+        $terms_slug = array(); // 配列のセット
+        foreach( $post_terms as $value ){ // 配列の作成
+          $terms_slug[] = $value->slug; // タームのスラッグを配列に追加
+        }
+      }
+      $args = array(
+        'post_type' => $post_type_slug, // 投稿タイプを指定
+        'posts_per_page' => 4, // 表示件数を指定
+        'orderby' =>  'DESC', // ランダムに投稿を取得
+        'post__not_in' => array($post->ID), // 現在の投稿を除外
+        'tax_query' => array( // タクソノミーパラメーターを使用
+          array(
+            'taxonomy' => $taxonomy_slug, // タームを取得タクソノミーを指定
+            'field' => 'slug', // スラッグに一致するタームを返す
+            'terms' => $terms_slug // タームの配列を指定
+          )
+        )
+      );
+      $the_query = new WP_Query($args); if($the_query->have_posts()):
+    ?>
+    <?php while ($the_query->have_posts()): $the_query->the_post(); ?>
+      <div class="p-test-content">
+        <div class="post">
+          <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
+          <h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+          <div class="article_meta">
+            <!-- 記事が属するカテゴリーを表示 -->
+            <?php $category = get_the_category(); ?>
+            <span><?php echo $category[0]->cat_name; ?></span>
+            <!-- 記事の投稿時刻を表示 -->
+            <time class="news_time" datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y年m月d日'); ?></time>
+          </div>
+          <!-- 記事の抜粋を表示、５５文字まで！！ -->
+          <?php the_excerpt(); ?>
+        </div>
+      </div>
+    <?php endwhile; ?>
+      <?php wp_reset_postdata(); ?>
+    <?php endif; ?>
+
+  <?php else: ?>
+
+  <!-- ****************関連記事（ニュース）**************** -->
   <div class="p-test-content">
 
     <?php
@@ -92,13 +158,15 @@
             <!-- 記事の投稿時刻を表示 -->
             <time class="news_time" datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y年m月d日'); ?></time>
           </div>
+          <!-- 記事の抜粋を表示、５５文字まで！！ -->
+          <?php the_excerpt(); ?>
         </div>
     <?php endwhile;
     endif; ?>
     <?php wp_reset_postdata(); ?>
-
-
   </div>
+
+  <?php endif; ?>
 
 </div>
 <?php get_footer(); ?>

@@ -26,19 +26,32 @@ function my_setup() {
 add_action( 'after_setup_theme', 'my_setup' );
 
 
+/**
+ * 
+ * 投稿タイプごとに異なるアーカイブの表示件数を指定
+ * 
+ */
+function change_posts_per_page($query) {
+  if ( is_admin() || ! $query->is_main_query() )
+  return;
+  if ( $query->is_post_type_archive('blog') ) {
+    $query->set( 'posts_per_page', '9' );
+  }
+  if ( $query->is_post_type_archive('works') ) {
+    $query->set( 'posts_per_page', '6' );
+  }
+}
+add_action( 'pre_get_posts', 'change_posts_per_page' );
+
 
 /**
  * CSSとJavaScriptの読み込み
  *
  * @codex https://wpdocs.osdn.jp/%E3%83%8A%E3%83%93%E3%82%B2%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC
  */
-function my_script_init()
-{
-
+function my_script_init() {
 	wp_enqueue_style( 'my', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0.1', 'all' );
-
 	wp_enqueue_script( 'my', get_template_directory_uri() . '/assets/js/script.js', array( 'jquery' ), '1.0.1', true );
-
 }
 add_action('wp_enqueue_scripts', 'my_script_init');
 
