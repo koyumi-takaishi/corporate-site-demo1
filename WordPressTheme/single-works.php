@@ -23,14 +23,6 @@
         // var_dump(have_rows('images',$post->ID));
       ?>
 
-      <?php 
-        $group = get_field('images');
-        echo('<pre>');
-            var_dump($group);
-        echo('<pre>');
-        exit;
-      ?>
-
       <article id="post-<?php the_ID(); ?>" <?php post_class('article'); ?>>
 
         <header class="article_header">
@@ -52,21 +44,50 @@
 
         
         <div class="article_body">
-          <!-- アイキャッチ画像表示 -->
-          <?php the_post_thumbnail('thumbnail'); ?>
 
-          <?php if (have_rows('images')) : ?>
-          <?php
-          //グループのデータを取得
-          $group = get_field('images');
-          
-          echo('<pre>');
-              var_dump($group);
-          echo('<pre>');
-          exit;
-
-          ?>
+          <!-- カスタムフィールドのグループ内のサブフィールドの画像出力 -->
+          <?php if( have_rows('images') ):  ?>
+            <?php while( have_rows('images') ): the_row(); ?>
+              <?php
+              $image1 = get_sub_field('image1');
+              if($image1){echo '<img src="'.$image1['url'].'">';}
+              ?>
+              <?php
+              $image2 = get_sub_field('image2');
+              if($image2){echo '<img src="'.$image2['url'].'">';}
+              ?>
+              <?php
+              $image3 = get_sub_field('image3');
+              if($image3){echo '<img src="'.$image3['url'].'">';}
+              ?>
+              <?php
+              $image4 = get_sub_field('image4');
+              if($image4){echo '<img src="'.$image4['url'].'">';}
+              ?>
+              <?php
+              $image5 = get_sub_field('image5');
+              if($image5){echo '<img src="'.$image5['url'].'">';}
+              ?>
+              <?php
+              $image6 = get_sub_field('image6');
+              if($image6){echo '<img src="'.$image6['url'].'">';}
+              ?>
+              <?php
+              $image7 = get_sub_field('image7');
+              if($image7){echo '<img src="'.$image7['url'].'">';}
+              ?>
+              <?php
+              $image8 = get_sub_field('image8');
+              if($image8){echo '<img src="'.$image8['url'].'">';}
+              ?>
+              <?php
+              $image9 = get_sub_field('image9');
+              if($image9){echo '<img src="'.$image9['url'].'">';}
+              ?>
+            <?php endwhile; ?>
           <?php endif; ?>
+
+
 
           <!-- カスタムフィールド表示 -->
           <?php if(get_field('point1-title')): ?>
