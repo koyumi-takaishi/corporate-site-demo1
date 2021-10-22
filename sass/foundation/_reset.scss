@@ -34,7 +34,7 @@ body {
 }
 
 body {
-	font-family: font-family-base;
+	font-family: $font-family-base;
 	font-size: $font-size-base;
 	font-weight: $font-weight-base;
 	color: $text-color;
@@ -75,6 +75,13 @@ ol[role="list"] {
   list-style: none;
 }
 
+ul {
+	margin-block-start: 0;
+	margin-block-end: 0;
+	padding-inline-start: 0;
+	list-style: none;
+}
+
 /* Set core root defaults */
 html:focus-within {
   scroll-behavior: smooth;
@@ -88,6 +95,10 @@ body {
 }
 
 /* A elements that don't have a class get default styles */
+a {
+	text-decoration: none;
+	color: $text-color;
+}
 a:not([class]) {
   text-decoration-skip-ink: auto;
 }

@@ -1,0 +1,44 @@
+.c-hamburger{
+  z-index: $l-hamburger;
+}
+
+.c-hamburger span {
+  position: relative;
+  display: block;
+  height: 2px;
+  width: 24px;
+  background: #fff;
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.c-hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.c-hamburger span:nth-child(2) {
+  margin: 4px 0;
+}
+
+.c-hamburger span:nth-child(3) {
+  top: 0;
+}
+
+/*OPEN時の動き*/
+.c-hamburger.open span:nth-child(1) {
+  top: 5px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.c-hamburger.open span:nth-child(2) {
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.c-hamburger.open span:nth-child(3) {
+  top: -7px;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}

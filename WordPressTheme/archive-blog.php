@@ -25,6 +25,7 @@ echo '<a href="'.get_term_link($term->slug,'blog_category').'">'.$term->name.'</
   <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post(); ?>
       <div class="p-test-content">
+        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
         <time datetime="<?php the_time('c'); ?>" class="p-topic-info__date"><?php the_time('Y.m.d'); ?></time>
         <?php
         $terms = get_the_terms($post->ID,'blog_category');

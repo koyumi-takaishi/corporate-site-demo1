@@ -1,0 +1,26 @@
+.p-header {
+  width: 100%;
+  height: rem(50);
+  background-color: rgba($header-bg, 0.5);
+  padding-right: $padding-sp;
+	padding-left: $padding-sp;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include mq(tab) {
+    padding-right: 0;
+  }
+}
+
+.p-header__logo {
+  width: rem(70);
+  position: relative;
+  z-index: $l-header-logo;
+}
+
+.p-header__hamburger {
+  display: block;
+  @include mq(tab) {
+    display: none;
+  }
+}

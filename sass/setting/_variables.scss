@@ -1,12 +1,18 @@
 // 色
-$background: #fff; // 背景
-$text-color: #333; // テキスト色
+$background: #000; // 背景
+$header-bg: #111; // ヘッダー背景
+$background-sub: #3d3d3d; // 背景サブ
+$text-color: #fff; // テキスト色
+$text-sub: #333; // テキストサブ
+$accent: #F9F871; //アクセントカラー
+$accent-sub: #FFBA6A; //アクセントカラー
 
 // マウスホバー
 $opacity: 0.7; // 透過度
 
 // フォント
-$font-family-base: "";// ベースフォント
+$font-family-base: 'Noto Sans JP', sans-serif;// ベースフォント
+$font-family-sub: 'Noto Serif JP', serif;// サブフォント
 $font-size-base: 16px; // ベースフォントサイズ
 $font-weight-base: 400; // ベースフォントウェイト
 $lh: 1.6; // ベース行間
@@ -15,8 +21,8 @@ $lh: 1.6; // ベース行間
 // レイアウト
 // ---
 $l-tab: 768px; // タブレットサイズ
-$l-inner: 1000px; // インナー幅
-$l-pc: 1440px; // パソコン幅
+$l-inner: 1100px; // インナー幅
+$l-pc: 1280px; // パソコン幅
 
 // ブレークポイント（PC基準）
 $breakpoints: (
@@ -27,8 +33,12 @@ $breakpoints: (
 
 );
 
-
-
-
 $padding-pc: 25px; // タブレット時の余白
 $padding-sp: 20px; // スマホ時の余白
+
+// z-index
+$l-header: 50;
+$l-drawer: 90;
+$l-header-logo: 100;
+$l-hamburger: 100;
+

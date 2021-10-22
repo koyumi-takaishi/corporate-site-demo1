@@ -58,9 +58,9 @@
           <div class="postLink postLink-prev"><?php previous_post_link('%link', 'PREV'); ?></div>
           <!-- 一覧へ -->
           <?php if (is_singular('blog')): ?>
-            <a href="/blog/">一覧</a>
+            <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">一覧</a>
           <?php else: ?>
-            <a href="/news/">一覧</a>
+            <a href="<?php echo esc_url( home_url( '/news/' ) ); ?>">一覧</a>
           <?php endif; ?>
           <!-- 前後のページへのリンクを表示する（パラメーターは表示したい文字） -->
           <div class="postLink postLink-next"><?php previous_post_link('%link', 'NEXT'); ?></div>

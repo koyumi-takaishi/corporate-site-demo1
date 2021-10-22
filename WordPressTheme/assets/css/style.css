@@ -335,9 +335,9 @@ body {
 body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background: #fff;
-	color: #333;
-	font-family: font-family-base;
+	background: #000;
+	color: #fff;
+	font-family: "Noto Sans JP", sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 1.6;
@@ -377,6 +377,16 @@ ol[role="list"] {
 	list-style: none;
 }
 
+ul {
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+	-webkit-padding-start: 0;
+	list-style: none;
+	margin-block-end: 0;
+	margin-block-start: 0;
+	padding-inline-start: 0;
+}
+
 /* Set core root defaults */
 
 html:focus-within {
@@ -392,6 +402,11 @@ body {
 }
 
 /* A elements that don't have a class get default styles */
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
 
 a:not([class]) {
 	-webkit-text-decoration-skip: ink;
@@ -417,18 +432,134 @@ select {
 
 /* Remove all animations and transitions for people that prefer not to see them */
 
+.l-drawer {
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.l-header {
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 50;
+}
+
 .l-inner {
 	height: inherit;
 	margin: 0 auto;
 	max-width: 100%;
 	padding-left: 20px;
 	padding-right: 20px;
-	width: 1000px;
+	width: 1100px;
+}
+
+.c-hamburger {
+	z-index: 100;
+}
+
+.c-hamburger span {
+	background: #fff;
+	display: block;
+	height: 2px;
+	position: relative;
+	transition: ease .3s;
+	width: 24px;
+}
+
+.c-hamburger span:nth-child(1) {
+	top: 0;
+}
+
+.c-hamburger span:nth-child(2) {
+	margin: 4px 0;
+}
+
+.c-hamburger span:nth-child(3) {
+	top: 0;
+}
+
+/*OPEN時の動き*/
+
+.c-hamburger.open span:nth-child(1) {
+	top: 5px;
+	transform: rotate(45deg);
+}
+
+.c-hamburger.open span:nth-child(2) {
+	opacity: 0;
+	transform: translateY(-50%);
+}
+
+.c-hamburger.open span:nth-child(3) {
+	top: -7px;
+	transform: rotate(-45deg);
 }
 
 .c-test {
 	color: red;
 	font-size: 1.25rem;
+}
+
+.p-drawer {
+	background-color: #000;
+	display: none;
+	height: 100vh;
+	width: 100%;
+}
+
+.p-drawer__items {
+	left: 50%;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+}
+
+.p-drawer__item {
+	height: inherit;
+}
+
+.p-drawer__item a {
+	display: block;
+	letter-spacing: 0.125em;
+	line-height: 1.4375;
+	padding: 1rem 0;
+}
+
+.p-header {
+	align-items: center;
+	background-color: rgba(17, 17, 17, 0.5);
+	display: flex;
+	height: 3.125rem;
+	justify-content: space-between;
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 100%;
+}
+
+.p-header__logo {
+	position: relative;
+	width: 4.375rem;
+	z-index: 100;
+}
+
+.p-header__hamburger {
+	display: block;
+}
+
+.swiper-slide-active .slide-img,
+.swiper-slide-duplicate-active .slide-img,
+.swiper-slide-prev .slide-img {
+	-webkit-animation: zoomUp 10s linear 0s 1 normal both;
+	animation: zoomUp 10s linear 0s 1 normal both;
+}
+
+.slide-img img {
+	display: block;
 }
 
 .p-test {
@@ -475,7 +606,11 @@ html {
 @media screen and (min-width: 768px) {
 
 html {
-	font-size: 1.6vw;
+	font-size: 1.45455vw;
+}
+
+.l-drawer {
+	position: initial;
 }
 
 .l-inner {
@@ -488,6 +623,44 @@ html {
 	font-size: 3.125rem;
 }
 
+.p-drawer {
+	background-color: initial;
+	display: block;
+	height: initial;
+	height: inherit;
+	width: initial;
+}
+
+.p-drawer__items {
+	display: flex;
+	height: inherit;
+	position: initial;
+	transform: initial;
+	width: initial;
+}
+
+.p-drawer__item a {
+	align-items: center;
+	display: flex;
+	height: inherit;
+	padding: 0 1rem;
+}
+
+.p-drawer__item--contact a {
+	background-color: #fff;
+	color: #333;
+	margin-left: 1rem;
+	padding: 0 2rem;
+}
+
+.p-header {
+	padding-right: 0;
+}
+
+.p-header__hamburger {
+	display: none;
+}
+
 .p-test {
 	color: green;
 	font-size: 3.125rem;
@@ -495,7 +668,7 @@ html {
 
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1100px) {
 
 html {
 	font-size: 16px;
@@ -503,7 +676,7 @@ html {
 
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1100px) {
 
 .c-test {
 	color: blue;
@@ -519,7 +692,7 @@ html {
 
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
 
 .c-test {
 	color: brown;
@@ -527,6 +700,30 @@ html {
 
 .p-test {
 	color: brown;
+}
+
+}
+
+@-webkit-keyframes zoomUp {
+
+0% {
+	transform: scale(1);
+}
+
+100% {
+	transform: scale(1.15);
+}
+
+}
+
+@keyframes zoomUp {
+
+0% {
+	transform: scale(1);
+}
+
+100% {
+	transform: scale(1.15);
 }
 
 }

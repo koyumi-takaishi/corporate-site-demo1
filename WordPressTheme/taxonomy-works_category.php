@@ -13,7 +13,7 @@
 }?>
 </div>
 
-<a href="/works/">ALL</a>
+<a href="<?php echo esc_url( home_url( '/works/' ) ); ?>">ALL</a>
 
 <?php
 $cat = get_queried_object();
@@ -29,6 +29,7 @@ foreach ( $terms as $term ): ?>
   <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post(); ?>
       <div class="p-test-content">
+        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
         <time datetime="<?php the_time('c'); ?>" class="p-topic-info__date"></time>
         <?php
         $terms = get_the_terms($post->ID,'works_category');

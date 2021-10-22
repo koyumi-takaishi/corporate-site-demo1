@@ -1,0 +1,55 @@
+.p-drawer {
+  display: none;
+  height: 100vh;
+  width: 100%;
+  background-color: $background;
+  @include mq(tab) {
+    width: initial;
+    display: block;
+    height: initial;
+    background-color: initial;
+    height: inherit;
+  }
+}
+
+.p-drawer__items {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  @include mq(tab) {
+    width: initial;
+    height: inherit;
+    position: initial;
+    transform: initial;
+    display: flex;
+  }
+}
+
+.p-drawer__item {
+  height: inherit;
+}
+
+.p-drawer__item a {
+  line-height: 1.4375;
+  letter-spacing: 0.125em;
+  padding: rem(16) 0;
+  display: block;
+  @include mq(tab) {
+    display: flex;
+    align-items: center;
+    height: inherit;
+    padding: 0 rem(16);
+  }
+}
+
+.p-drawer__item--contact a {
+  @include mq(tab) {
+    background-color: $text-color;
+    color: $text-sub;
+    padding: 0 rem(32);
+    margin-left: rem(16);
+  }
+}

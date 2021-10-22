@@ -18,11 +18,6 @@
     <?php while (have_posts()) : the_post(); ?>
       <!-- 現在の投稿のIDを表示、現在の投稿の種別に応じたクラス属性を表示 -->
 
-      <?php 
-        // var_dump($post->ID); 
-        // var_dump(have_rows('images',$post->ID));
-      ?>
-
       <article id="post-<?php the_ID(); ?>" <?php post_class('article'); ?>>
 
         <header class="article_header">
@@ -48,46 +43,18 @@
           <!-- カスタムフィールドのグループ内のサブフィールドの画像出力 -->
           <?php if( have_rows('images') ):  ?>
             <?php while( have_rows('images') ): the_row(); ?>
-              <?php
-              $image1 = get_sub_field('image1');
-              if($image1){echo '<img src="'.$image1['url'].'">';}
-              ?>
-              <?php
-              $image2 = get_sub_field('image2');
-              if($image2){echo '<img src="'.$image2['url'].'">';}
-              ?>
-              <?php
-              $image3 = get_sub_field('image3');
-              if($image3){echo '<img src="'.$image3['url'].'">';}
-              ?>
-              <?php
-              $image4 = get_sub_field('image4');
-              if($image4){echo '<img src="'.$image4['url'].'">';}
-              ?>
-              <?php
-              $image5 = get_sub_field('image5');
-              if($image5){echo '<img src="'.$image5['url'].'">';}
-              ?>
-              <?php
-              $image6 = get_sub_field('image6');
-              if($image6){echo '<img src="'.$image6['url'].'">';}
-              ?>
-              <?php
-              $image7 = get_sub_field('image7');
-              if($image7){echo '<img src="'.$image7['url'].'">';}
-              ?>
-              <?php
-              $image8 = get_sub_field('image8');
-              if($image8){echo '<img src="'.$image8['url'].'">';}
-              ?>
-              <?php
-              $image9 = get_sub_field('image9');
-              if($image9){echo '<img src="'.$image9['url'].'">';}
+              <?php 
+                $i = 1;
+                $max = 9; //画像の最大枚数
+                while($i<=$max){ //iが9以下の場合ループする
+                  $name = 'image'.$i; //image1〜image9で繰り返していく
+                  $image = get_sub_field($name); //サブフィールドの情報取得
+                  if($image){echo '<img src="'.$image['url'].'">';} //imgタグに画像URL入れて表示
+                  $i++; //iに1足す
+                }
               ?>
             <?php endwhile; ?>
           <?php endif; ?>
-
-
 
           <!-- カスタムフィールド表示 -->
           <?php if(get_field('point1-title')): ?>
@@ -115,7 +82,7 @@
           <!-- 前後のページへのリンクを表示する（パラメーターは表示したい文字） -->
           <div class="postLink postLink-prev"><?php previous_post_link('%link', 'PREV'); ?></div>
           <!-- 一覧へ -->
-          <a href="/works/">一覧</a>
+          <a href="<?php echo esc_url( home_url( '/works/' ) ); ?>">一覧</a>
           <!-- 前後のページへのリンクを表示する（パラメーターは表示したい文字） -->
           <div class="postLink postLink-next"><?php previous_post_link('%link', 'NEXT'); ?></div>
         </div>
