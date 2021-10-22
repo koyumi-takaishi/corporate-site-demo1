@@ -1,0 +1,33 @@
+.p-news__inner {
+  padding-right: $padding-sp;
+	padding-left: $padding-sp;
+  @include mq(tab) {
+    max-width: rem(1042);
+    margin: 0 auto;
+    padding-right: $padding-pc;
+		padding-left: $padding-pc;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.p-news__button {
+  display: block;
+  border: 1px solid $text-color;
+  background-color: $background-sub;
+  text-align: center;
+  padding: rem(11) 0;
+  margin-top: rem(28);
+  font-size: rem(20);
+  letter-spacing: 0.1em;
+  line-height: 1.45;
+  @include mq(tab) {
+    margin-top: initial;
+    margin-left: auto;
+    background-color: $text-color;
+    color: $text-sub;
+    font-size: rem(16);
+    font-weight: 500;
+    padding: rem(5) rem(27);
+  }
+}

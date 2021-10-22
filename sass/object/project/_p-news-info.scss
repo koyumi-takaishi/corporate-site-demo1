@@ -1,0 +1,30 @@
+.p-news-info {
+  @include mq(tab) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.p-news-info__date {
+  margin-right: rem(32);
+  @include mq(tab) {
+    margin-right: rem(48);
+  }
+}
+
+.p-news-info__category {
+  display: inline-block;
+  font-size: rem(14);
+  padding: rem(6) rem(21);
+  border: 1px solid $text-color;
+  margin-right: rem(61);
+}
+
+.p-news-info__title {
+  display: block;
+  margin-top: rem(16);
+  line-height: 1.4375;
+  @include mq(tab) {
+    margin-top: initial;
+  }
+}

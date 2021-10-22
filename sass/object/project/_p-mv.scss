@@ -1,3 +1,72 @@
+.p-mv {
+  position: relative;
+}
+
+.p-mv::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100vh;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($mask-bg, 0.2);
+  z-index: $l-mv-mask;
+}
+
+.p-mv__wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: $l-mv-title;
+}
+
+.p-mv__main-title {
+  font-size: rem(28);
+  letter-spacing: 0.01785714em;
+  line-height: 1;
+  font-weight: bold;
+  @include mq(tab) {
+    font-size: rem(50);
+    letter-spacing: 0.01em;
+  }
+}
+
+.p-mv__sub-title {
+  font-size: rem(20);
+  letter-spacing: 0.025em;
+  line-height: 1;
+  font-weight: bold;
+  margin-top: rem(24);
+  @include mq(tab) {
+    font-size: rem(25);
+    letter-spacing: 0.02em;
+  }
+}
+
+// 以下、Swiperの記述
+.p-mv .swiper-slide-active .slide-img,
+.p-mv .swiper-slide-duplicate-active .slide-img,
+.p-mv .swiper-slide-prev .slide-img{
+  animation: zoomUp 10s linear 0s 1 normal both;  
+}
+
+.p-mv .slide-img img {
+  width: 100%;
+  height: 100vh;
+  display: block;
+  object-position: center;
+  object-fit: cover;
+}
+
 @keyframes zoomUp {
   0% {
     transform: scale(1);
@@ -5,13 +74,4 @@
   100% {
     transform: scale(1.15);
   }
-}
-
-.swiper-slide-active .slide-img,
-.swiper-slide-duplicate-active .slide-img,
-.swiper-slide-prev .slide-img{
-  animation: zoomUp 10s linear 0s 1 normal both;  
-}
-.slide-img img{
-  display: block;
 }
