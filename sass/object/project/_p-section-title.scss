@@ -1,0 +1,32 @@
+.p-section-title {
+  position: relative;
+}
+
+.p-section-title__main {
+  font-size: rem(20);
+  letter-spacing: 0.1em;
+  line-height: 1.45;
+  text-align: center;
+  font-weight: normal;
+  @include mq(tab) {
+    font-size: rem(30);
+    letter-spacing: 0.0666667em;
+    line-height: 1.16666667;
+  }
+}
+
+.p-section-title__sub {
+  position: absolute;
+  top: rem(-50);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: rem(50);
+  line-height: 1.44;
+  letter-spacing: 0.04em;
+  color: rgba($color: $accent, $alpha: 0.2);
+  font-family: $font-family-sub;
+  @include mq(tab) {
+    font-size: rem(110);
+    letter-spacing: 0.01818182em;
+  }
+}

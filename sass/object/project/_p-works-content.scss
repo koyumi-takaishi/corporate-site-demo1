@@ -1,0 +1,17 @@
+.p-works-content {
+  padding: 0 $padding-sp rem(21);
+}
+
+.p-works-content__title {
+  font-size: rem(20);
+  letter-spacing: 0.1em;
+  line-height: 1.45;
+  text-align: center;
+  font-weight: normal;
+}
+
+.p-works-content__text {
+  margin-top: rem(24);
+  letter-spacing: 0.125em;
+  line-height: 1.4375;
+}

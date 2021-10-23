@@ -1,0 +1,16 @@
+.p-works__title .p-section-title__sub {
+  @include mq(tab) {
+    left: rem(89);
+    transform: initial;
+    top: rem(-45);
+  }
+}
+
+.p-works__wrapper {
+  margin-top: rem(48);
+  background-color: $background-sub;
+}
+
+.p-works__content {
+  margin-top: rem(24);
+}

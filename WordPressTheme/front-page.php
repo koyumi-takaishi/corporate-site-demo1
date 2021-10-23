@@ -69,43 +69,63 @@ $contact = esc_url(home_url('/contact/'));
   </div>
 </section>
 
-
-<!-- 事業内容 -->
-<div class="p-test-content">
-  <p class="p-test">事業内容</p>
-  <a href="<?php echo $content; ?>">経営理念ページへ</a>
-  <a href="<?php echo $philosophy1; ?>">理念1へ</a>
-  <a href="<?php echo $philosophy2; ?>">理念2へ</a>
-  <a href="<?php echo $philosophy3; ?>">理念3へ</a>
-</div>
-
-<!-- 制作実績 -->
-<div class="p-test-content">
-  <p class="p-test">制作実績</p>
-  <div class="p-topics__items">
-    <?php
-    $works_query = new WP_Query(
-      array(
-        'post_type'      => 'works',
-        'posts_per_page' => 3,
-      )
-    );
-    ?>
-    <?php if ($works_query->have_posts()) : ?>
-      <?php while ($works_query->have_posts()) : ?>
-        <?php $works_query->the_post(); ?>
-
-        <?php the_post_thumbnail('thumbnail'); ?>
-
-      <?php endwhile; ?>
-    <?php endif; ?>
-    <?php wp_reset_postdata(); ?>
-
-    <a href="<?php echo $works; ?>">詳しく見る</a>
+<section class="p-content l-content">
+  <div class="p-content__title p-section-title">
+    <h2 class="p-section-title__main">事業内容</h2>
+    <span class="p-section-title__sub p-section-title__sub--content">Content</span>
   </div>
-</div>
-
-<!-- 企業概要 -->
+  <div class="p-content__wrapper">
+    <a class="p-content__link p-content__link--1" href="<?php echo $content; ?>"><span>経営理念ページへ</span></a>
+    <a class="p-content__link p-content__link--2" href="<?php echo $philosophy1; ?>">理念1へ</a>
+    <a class="p-content__link p-content__link--3" href="<?php echo $philosophy2; ?>">理念2へ</a>
+    <a class="p-content__link p-content__link--4" href="<?php echo $philosophy3; ?>">理念3へ</a>
+  </div>
+</section>
+  
+<section class="p-works l-works">
+  <div class="p-works__title p-section-title">
+    <h2 class="p-section-title__main">制作実績</h2>
+    <span class="p-section-title__sub">Works</span>
+  </div>
+  <div class="p-works__wrapper">
+    <div class="p-works__inner">
+      <div class="p-works__slide p-works-slide">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <?php
+            $works_query = new WP_Query(
+              array(
+                'post_type'      => 'works',
+                'posts_per_page' => 3,
+              )
+            );
+            ?>
+            <?php if ($works_query->have_posts()) : ?>
+            <?php while ($works_query->have_posts()) : ?>
+              <div class="swiper-slide">
+                <div class="slide-img">
+                  <?php $works_query->the_post(); ?>
+                  <?php the_post_thumbnail('full'); ?>
+                </div>
+              </div>
+            <?php endwhile; ?>
+            <?php endif; ?>
+            <?php wp_reset_postdata(); ?>
+          </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+      <div class="p-works__content p-works-content">
+        <h3 class="p-works-content__title">メインタイトルが入ります。</h3>
+        <p class="p-works-content__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+        <a href="<?php echo $works; ?>">詳しく見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+    
+    <!-- 企業概要 -->
 <div class="p-test-content">
   <p class="p-test">企業概要</p>
   <a href="<?php echo $overview; ?>">詳しく見る</a>

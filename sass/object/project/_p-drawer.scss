@@ -42,7 +42,32 @@
     align-items: center;
     height: inherit;
     padding: 0 rem(16);
+    position: relative;
   }
+}
+
+.p-drawer__item a::before {
+  @include mq(tab) {
+    content: '';
+    /*絶対配置で線の位置を決める*/
+    position: absolute;
+    bottom: rem(8);
+    left: 10%;
+    /*線の形状*/
+    width: 80%;
+    height: 1px;
+    background: $accent;
+    /*アニメーションの指定*/
+    transition: all .3s;
+    transform: scale(0, 1);/*X方向0、Y方向1*/
+    transform-origin: left top;/*左上基点*/
+  }
+}
+
+.p-drawer__item a:hover::before {
+  @include mq(tab) {
+    transform: scale(1, 1);/*X方向にスケール拡大*/
+  } 
 }
 
 .p-drawer__item--contact a {
@@ -51,5 +76,18 @@
     color: $text-sub;
     padding: 0 rem(32);
     margin-left: rem(16);
+    transition: .3s;
+  }
+}
+.p-drawer__item--contact a:hover {
+  @include mq(tab) {
+    background-color: $text-sub;
+    color: $text-color;
+  }
+}
+
+.p-drawer__item.p-drawer__item--contact a::before {
+  @include mq(tab) {
+    display: none;
   }
 }

@@ -1,8 +1,13 @@
 .p-news-info {
   @include mq(tab) {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
   }
+}
+
+.p-news-info__box {
+  display: flex;
+  align-items: center;
 }
 
 .p-news-info__date {
@@ -15,9 +20,11 @@
 .p-news-info__category {
   display: inline-block;
   font-size: rem(14);
-  padding: rem(6) rem(21);
+  padding: rem(6);
   border: 1px solid $text-color;
   margin-right: rem(61);
+  text-align: center;
+  width: rem(100);
 }
 
 .p-news-info__title {
@@ -25,6 +32,9 @@
   margin-top: rem(16);
   line-height: 1.4375;
   @include mq(tab) {
+    padding-top: rem(5);
     margin-top: initial;
+    flex: 1;
+    margin-right: rem(48);
   }
 }
