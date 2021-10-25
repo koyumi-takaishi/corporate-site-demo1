@@ -1,0 +1,6 @@
+.l-blog {
+  margin-top: rem(99);
+  @include mq(tab) {
+    margin-top: rem(222);
+  }
+}

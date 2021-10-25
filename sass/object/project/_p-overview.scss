@@ -1,36 +1,34 @@
-.p-works__title .p-section-title__sub {
+.p-overview__title .p-section-title__sub {
   @include mq(tab) {
-    right: 0;
     transform: initial;
     top: rem(-45);
   }
 }
 
-.p-works__wrapper {
+.p-overview__wrapper {
   margin-top: rem(48);
   background-color: $background-sub;
   @include mq(tab) {
     background-color: initial;
     padding: rem(80) 0;
     position: relative;
-    // z-index: 1;
   }
 }
 
-.p-works__wrapper::before {
+.p-overview__wrapper::before {
   @include mq(tab) {
     content: "";
     height: 100%;
     width: 70%;
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
     background-color: $background-sub;
     z-index: -1;
   }
 }
 
-.p-works__inner {
+.p-overview__inner {
   margin: 0 auto;
 	max-width: 100%;
 	width: 1150px;
@@ -39,15 +37,43 @@
     padding-right: $padding-pc;
 		padding-left: $padding-pc;
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
   }
 }
 
-.p-works__content {
+.p-overview__content {
   margin-top: rem(24);
   @include mq(tab) {
     margin-top: initial;
-    margin-left: rem(32);
+    margin-right: rem(32);
   }
 }
 
+.p-overview__img {
+  width: 100%;
+  position: relative;
+  @include mq(tab) {
+    width: 50.636364%;
+  }
+}
+
+.p-overview__img::before {
+  content: "";
+  display: block;
+  padding-top: 69.6%;
+  @include mq(tab) {
+    padding-top: 69.83842%;
+  }
+}
+
+.p-overview__img img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}

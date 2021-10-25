@@ -1,0 +1,44 @@
+.c-button-main {
+  padding: rem(10);
+  display: block;
+  font-size: rem(20);
+  line-height: 1.45;
+  border: 1px solid $text-color;
+  text-align: center;
+  background-color: $text-sub;
+  @include mq(tab) {
+    font-size: rem(16);
+    width: rem(360);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+}
+
+.c-button-main:before {
+  @include mq(tab) {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background-color: $text-color;
+    transform: translateX(-100%);
+    transition: 0.3s ease-in-out;
+  }
+}
+
+.c-button-main:hover {
+  @include mq(tab) {
+    color: $text-sub;
+    transition: 0.3s ease-in-out;
+  }
+}
+
+.c-button-main:hover:before {
+  @include mq(tab) { 
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,29 @@
+.p-contact {
+  background-color: $background-sub;
+  padding: rem(67) 0 rem(64);
+  @include mq(tab) {
+    padding: rem(148) 0 rem(147);
+  }
+}
+
+.p-contact__title .p-section-title__sub {
+  @include mq(tab) {
+    top: rem(-95);
+    transform: initial;
+  }
+}
+
+.p-contact__text {
+  text-align: center;
+  margin-top: rem(20);
+  @include mq(tab) {
+    margin-top: rem(24);
+  }
+}
+
+.p-contact__button {
+  margin-top: rem(40);
+  @include mq(tab) {
+    margin: rem(61) auto 0;
+  }
+}

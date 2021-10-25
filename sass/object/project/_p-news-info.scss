@@ -12,6 +12,7 @@
 
 .p-news-info__date {
   margin-right: rem(32);
+  font-size: rem(16);
   @include mq(tab) {
     margin-right: rem(48);
   }
@@ -31,6 +32,7 @@
   display: block;
   margin-top: rem(16);
   line-height: 1.4375;
+  font-size: rem(16);
   @include mq(tab) {
     padding-top: rem(5);
     margin-top: initial;

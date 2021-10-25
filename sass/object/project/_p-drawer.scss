@@ -38,6 +38,7 @@
   padding: rem(16) 0;
   display: block;
   @include mq(tab) {
+    font-size: rem(16);
     display: flex;
     align-items: center;
     height: inherit;
@@ -68,6 +69,12 @@
   @include mq(tab) {
     transform: scale(1, 1);/*X方向にスケール拡大*/
   } 
+}
+
+.p-drawer__item--top {
+  @include mq(tab) {
+    display: none;
+  }
 }
 
 .p-drawer__item--contact a {

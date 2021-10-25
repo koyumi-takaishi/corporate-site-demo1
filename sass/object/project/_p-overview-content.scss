@@ -1,4 +1,4 @@
-.p-works-content {
+.p-overview-content {
   padding: 0 $padding-sp rem(21);
   @include mq(tab) {
     width: 46.363636%;
@@ -6,7 +6,7 @@
   }
 }
 
-.p-works-content__title {
+.p-overview-content__title {
   font-size: rem(20);
   letter-spacing: 0.1em;
   line-height: 1.45;
@@ -20,7 +20,7 @@
   }
 }
 
-.p-works-content__text {
+.p-overview-content__text {
   margin-top: rem(24);
   letter-spacing: 0.125em;
   line-height: 1.4375;
@@ -32,7 +32,7 @@
   }
 }
 
-.p-works-content__button {
+.p-overview-content__button {
   margin-top: rem(16);
   @include mq(tab) {
     margin-top: rem(48);

@@ -1,0 +1,13 @@
+.p-cards {
+  display: flex;
+}
+
+.p-cards__card {
+  flex: 1;
+}
+
+.p-cards__card:not(:nth-child(3n)) {
+  @include mq(tab) {
+    margin-right: rem(25);
+  }
+}

@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -35,7 +35,7 @@
     </div>
     <nav class="p-header__nav p-drawer l-drawer js-drawer">
       <ul class="p-drawer__items">
-        <li class="p-drawer__item">
+        <li class="p-drawer__item p-drawer__item--top">
           <a href="<?php echo $home; ?>">トップ</a>
         </li>
         <li class="p-drawer__item">

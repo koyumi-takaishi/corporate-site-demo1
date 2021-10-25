@@ -16,6 +16,7 @@
 }
 
 .p-section-title__sub {
+  display: inline-block;
   position: absolute;
   top: rem(-50);
   left: 50%;
@@ -27,6 +28,8 @@
   font-family: $font-family-sub;
   @include mq(tab) {
     font-size: rem(110);
+    left: initial;
+    transform: initial;
     letter-spacing: 0.01818182em;
   }
 }

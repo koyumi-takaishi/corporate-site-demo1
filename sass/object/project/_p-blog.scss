@@ -1,0 +1,21 @@
+.p-blog__title .p-section-title__sub {
+  @include mq(tab) {
+    right: 0;
+    transform: initial;
+    top: rem(-45);
+  }
+}
+
+.p-blog__cards {
+  margin-top: rem(64);
+  @include mq(tab) {
+    margin-top: rem(48);
+  }
+}
+
+.p-blog__button {
+  margin-top: rem(24);
+  @include mq(tab) {
+    margin: rem(48) auto 0;
+  }
+}

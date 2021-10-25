@@ -1,5 +1,8 @@
 .p-works-slide {
   position: relative;
+  @include mq(tab) {
+    width: 50.636364%;
+  }
 }
 
 .p-works-slide .slide-img {
@@ -36,5 +39,8 @@
 }
 
 .p-works-slide .swiper-pagination-bullets.swiper-pagination-horizontal {
-  bottom: rem(-20);
+  bottom: rem(-24);
+  @include mq(tab) {
+    left: rem(-32);
+  }
 }
