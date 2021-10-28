@@ -193,16 +193,4 @@ $contact = esc_url(home_url('/contact/'));
   </div>
 </section>
 
-<section class="p-contact l-contact">
-  <div class="l-inner">
-    <div class="p-contact__title p-section-title">
-      <h2 class="p-section-title__main">お問い合わせ</h2>
-      <span class="p-section-title__sub">Contact</span>
-    </div>
-    <p class="p-contact__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-    <a class="c-button-main p-contact__button" href="<?php echo $blog; ?>">お問い合わせへ</a>
-  </div>
-</section>
-
-
 <?php get_footer(); ?>

@@ -615,12 +615,12 @@ select {
 	line-height: 1.85714286;
 }
 
-.p-cards {
-	display: flex;
-}
-
 .p-cards__card {
 	flex: 1;
+}
+
+.p-cards__card:not(:first-child) {
+	margin-top: 1.5rem;
 }
 
 .p-contact {
@@ -702,6 +702,41 @@ select {
 	letter-spacing: 0.125em;
 	line-height: 1.4375;
 	padding: 1rem 0;
+}
+
+.p-footer-nav__item {
+	height: inherit;
+}
+
+.p-footer-nav__item a {
+	display: block;
+	letter-spacing: 0.125em;
+	line-height: 1.4375;
+	padding: 0.25rem 0;
+}
+
+.p-footer {
+	padding-bottom: 3rem;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 3rem;
+	width: 100%;
+}
+
+.p-footer__wrapper {
+	text-align: center;
+}
+
+.p-footer__logo {
+	display: inline-block;
+}
+
+.p-footer__copyright {
+	font-size: 0.6875rem;
+	letter-spacing: 0.10909090;
+	line-height: 1.45454545;
+	margin-top: 2rem;
+	text-align: center;
 }
 
 .p-header {
@@ -1135,8 +1170,16 @@ html {
 	color: #fff;
 }
 
+.p-cards {
+	display: flex;
+}
+
 .p-cards__card:not(:nth-child(3n)) {
 	margin-right: 1.5625rem;
+}
+
+.p-cards__card:not(:first-child) {
+	margin-top: 0rem;
 }
 
 .p-contact {
@@ -1249,6 +1292,61 @@ html {
 
 .p-drawer__item.p-drawer__item--contact a::before {
 	display: none;
+}
+
+.p-footer-nav__items {
+	display: flex;
+}
+
+.p-footer-nav__item a {
+	align-items: center;
+	display: flex;
+	font-size: 1rem;
+	height: inherit;
+	padding: 0 1rem;
+	position: relative;
+}
+
+.p-footer-nav__item a::before {
+	background: #F9F871;
+	bottom: -0.5rem;
+	content: '';
+	height: 1px;
+	left: 10%; /*絶対配置で線の位置を決める*/
+	position: absolute;
+	transform: scale(0, 1); /*X方向0、Y方向1*/
+	transform-origin: left top; /*アニメーションの指定*/
+	transition: all .3s; /*線の形状*/
+	width: 80%; /*左上基点*/
+}
+
+.p-footer-nav__item a:hover::before {
+	transform: scale(1, 1); /*X方向にスケール拡大*/
+}
+
+.p-footer-nav__item--top {
+	display: none;
+}
+
+.p-footer {
+	padding-bottom: 1.625rem;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 2rem;
+}
+
+.p-footer__wrapper {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	text-align: left;
+}
+
+.p-footer__copyright {
+	font-size: 0.9375rem;
+	letter-spacing: 0.08em;
+	line-height: 2.333333;
+	margin-top: 4.0625rem;
 }
 
 .p-header {

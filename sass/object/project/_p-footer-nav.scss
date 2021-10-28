@@ -1,0 +1,54 @@
+.p-footer-nav__items {
+  @include mq(tab) {
+    display: flex;
+  }
+}
+
+.p-footer-nav__item {
+  height: inherit;
+}
+
+.p-footer-nav__item a {
+  line-height: 1.4375;
+  letter-spacing: 0.125em;
+  padding: rem(4) 0;
+  display: block;
+  @include mq(tab) {
+    font-size: rem(16);
+    display: flex;
+    align-items: center;
+    height: inherit;
+    padding: 0 rem(16);
+    position: relative;
+  }
+}
+
+.p-footer-nav__item a::before {
+  @include mq(tab) {
+    content: '';
+    /*絶対配置で線の位置を決める*/
+    position: absolute;
+    bottom: rem(-8);
+    left: 10%;
+    /*線の形状*/
+    width: 80%;
+    height: 1px;
+    background: $accent;
+    /*アニメーションの指定*/
+    transition: all .3s;
+    transform: scale(0, 1);/*X方向0、Y方向1*/
+    transform-origin: left top;/*左上基点*/
+  }
+}
+
+.p-footer-nav__item a:hover::before {
+  @include mq(tab) {
+    transform: scale(1, 1);/*X方向にスケール拡大*/
+  } 
+}
+
+.p-footer-nav__item--top {
+  @include mq(tab) {
+    display: none;
+  }
+}
