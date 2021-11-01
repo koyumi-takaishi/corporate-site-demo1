@@ -1,0 +1,12 @@
+.p-sub-content__text {
+  margin-top: rem(24);
+}
+
+.p-sub-content__detail {
+  margin-top: rem(80);
+  @include mq(tab) {
+    margin-top: rem(150);
+  }
+}
+
+

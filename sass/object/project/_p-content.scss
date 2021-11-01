@@ -69,3 +69,8 @@
     background-color: rgba(#fff, 0.6);
   }
 }
+.p-content__link:hover {
+  @include mq(tab) {
+    
+  }
+}

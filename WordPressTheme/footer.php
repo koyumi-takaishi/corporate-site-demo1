@@ -52,7 +52,12 @@ $contact = esc_url( home_url( '/contact/' ) );
     </nav>
   </div>
   <div class="p-footer__copyright">&copy; 2021 CodeUps Inc.</div>
+  <button class="c-page-top-button js-page-top-button">
+    <div class="c-page-top-button__img">
+    </div>
+  </button>
 </footer>
+
 <?php wp_footer(); ?>
 </body>
 </html>

@@ -41,6 +41,12 @@
   }
 }
 
+.p-footer-nav__item a:hover {
+  @include mq(tab) {
+    
+  }
+}
+
 .p-footer-nav__item a:hover::before {
   @include mq(tab) {
     transform: scale(1, 1);/*X方向にスケール拡大*/

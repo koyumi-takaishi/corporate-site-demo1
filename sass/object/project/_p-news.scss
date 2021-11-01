@@ -17,6 +17,10 @@
   }
 }
 
+.p-news__info:not(:first-child) {
+  margin-top: rem(32);
+}
+
 .p-news__button {
   display: block;
   border: 1px solid $text-color;
@@ -49,7 +53,7 @@
     position: absolute;
     z-index: -1;
     top: 0;
-    left: 0;
+    left: rem(-1);
     background-color: $text-sub;
     transform: translateX(-100%);
     transition: 0.3s ease-in-out;
@@ -60,6 +64,7 @@
   @include mq(tab) {
     color: $text-color;
     transition: 0.3s ease-in-out;
+    
   }
 }
 

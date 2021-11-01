@@ -1,0 +1,41 @@
+.c-page-top-button {
+  width: rem(45);
+  height: rem(45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  position: fixed;
+  z-index: $l-pagetop;
+  bottom: rem(41);
+  right: rem(21);
+  @include mq(tab) {
+    bottom: rem(32);
+    right: rem(31);
+  }
+}
+
+.c-page-top-button:hover {
+  @include mq(tab) {
+    background-color: $text-sub;
+    cursor: pointer;
+    transition: .3s;
+  }
+}
+
+.c-page-top-button__img {
+  margin-left: rem(-1);
+  display: inline-block;
+  width: rem(24);
+  height: rem(12);
+  background-image: url(../img/common/page-top.png);
+  background-size: cover;
+  background-position: center;
+  transition: .3s;
+}
+
+.c-page-top-button:hover .c-page-top-button__img {
+  @include mq(tab) {
+    background-image: url(../img/common/page-top-hover.png);
+  }
+}

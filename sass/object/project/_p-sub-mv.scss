@@ -1,0 +1,58 @@
+.p-sub-mv {
+  position: relative;
+}
+
+.p-sub-mv::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: rem(370);
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($mask-bg, 0.2);
+  z-index: $l-mv-mask;
+  @include mq(tab) {
+    height: rem(425);
+  }
+}
+
+.p-sub-mv__wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: rem(370);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: $l-mv-title;
+  @include mq(tab) {
+    height: rem(425);
+  }
+}
+
+.p-sub-mv__title {
+  font-size: rem(30);
+  letter-spacing: 0.0666667em;
+  line-height: 1;
+  font-weight: bold;
+  @include mq(tab) {
+    font-size: rem(35);
+    letter-spacing: 0.05714286em;
+  }
+}
+
+.p-sub-mv__img img {
+  width: 100%;
+  height: rem(370);
+  display: block;
+  object-position: center;
+  object-fit: cover;
+  @include mq(tab) {
+    height: rem(425);
+  }
+}

@@ -1,0 +1,35 @@
+.p-sub-content-detail__wrapper {
+  @include mq(tab) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.p-sub-content-detail__wrapper:not(:first-child) {
+  margin-top: rem(104);
+}
+
+.p-sub-content-detail__wrapper:nth-child(2n) {
+  @include mq(tab) {
+    flex-direction: row-reverse;
+  }
+}
+
+.p-sub-content-detail__img {
+  @include mq(tab) {
+    width: 50%;
+  }
+}
+
+.p-sub-content-detail__body {
+  margin-top: rem(24);
+  @include mq(tab) {
+    margin-top: 0;
+    width: 46.36363636%;
+  }
+}
+
+.p-sub-content-detail__text {
+  margin-top: rem(24);
+}
+

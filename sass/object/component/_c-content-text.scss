@@ -1,0 +1,11 @@
+.c-content-text {
+  font-size: rem(16);
+  letter-spacing: 0.125em;
+  line-height: 2.1875;
+}
+
+.c-content-text--center {
+  @include mq(tab) {
+    text-align: center;
+  }
+}

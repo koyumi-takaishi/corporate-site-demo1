@@ -29,13 +29,15 @@ jQuery(function ($) {
   $(function () {
     //変数fvHeightを定義
     var fvHeight = $(".p-mv").innerHeight();
+		var fvHeightSub = $(".p-sub-mv").innerHeight();
     var headerHeight = $(".p-header").innerHeight();
     var changePoint = fvHeight - headerHeight;
+		var changePointSub = fvHeightSub - headerHeight;
     /*** ヘッダーの色変更 ***/
   
     $(window).scroll(function () {
       //スクロール量とfvの高さを比較
-      if ($(window).scrollTop() > changePoint) {
+      if ($(window).scrollTop() > changePoint || $(window).scrollTop() > changePointSub ) {
         //条件を満たした場合：headerのカラー変更
         $(".js-header-color-change").addClass("color-change");
       } else {
@@ -62,27 +64,53 @@ jQuery(function ($) {
 		}
 	});
 
-	/* スムーススクロール */
-	jQuery('a[href^="#"]').click(function() {
-		let header = jQuery(".js-header").height();
-		let speed = 300;
-		let id = jQuery(this).attr("href");
-		let target = jQuery("#" == id ? "html" : id);
-		let position = jQuery(target).offset().top - header;
-		if ("fixed" !== jQuery("#header").css("position")) {
-			position = jQuery(target).offset().top;
-		}
-		if (0 > position) {
-			position = 0;
-		}
-		jQuery("html, body").animate(
-			{
-				scrollTop: position
-			},
-			speed
-		);
-		return false;
+	// ページトップボタンのスムーススクロール
+	$('.js-page-top-button').click(function () {
+		$('body,html').animate({
+				scrollTop: 0//ページトップまでスクロール
+		}, 500);//ページトップスクロールの速さ。数字が大きいほど遅くなる
+		return false;//リンク自体の無効化
 	});
+
+	// メインビュー過ぎたらページトップボタン表示
+	$(function () {
+    //変数fvHeightを定義
+    var fvHeight = $(".p-mv").innerHeight();
+    var fvHeightSub = $(".p-sub-mv").innerHeight();
+		$(".js-page-top-button").hide();
+    $(window).scroll(function () {
+      //スクロール量とfvの高さを比較
+      if ($(window).scrollTop() > fvHeight || $(window).scrollTop() > fvHeightSub) {
+        //条件を満たした場合：表示
+        $(".js-page-top-button").fadeIn();
+      } else {
+        //条件を満たさない場合：非表示
+        $(".js-page-top-button").fadeOut();
+      }
+    });
+  });
+
+	/* スムーススクロール */
+	// jQuery('a[href^="#"]').click(function() {
+	// 	let header = jQuery(".js-header").height();
+	// 	let speed = 300;
+	// 	let id = jQuery(this).attr("href");
+	// 	let target = jQuery("#" == id ? "html" : id);
+	// 	let position = jQuery(target).offset().top - header;
+	// 	if ("fixed" !== jQuery("#header").css("position")) {
+	// 		position = jQuery(target).offset().top;
+	// 	}
+	// 	if (0 > position) {
+	// 		position = 0;
+	// 	}
+	// 	jQuery("html, body").animate(
+	// 		{
+	// 			scrollTop: position
+	// 		},
+	// 		speed
+	// 	);
+	// 	return false;
+	// });
 
 	// スクロール判定
 	// jQuery(window).on("scroll", function() {

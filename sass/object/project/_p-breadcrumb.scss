@@ -1,0 +1,15 @@
+.p-breadcrumb {
+  font-size: rem(16);
+}
+
+.p-breadcrumb a {
+  @include mq(tab) {
+    transition: .3s;
+  }
+}
+
+.p-breadcrumb a:hover {
+  @include mq(tab) {
+    opacity: $opacity;
+  }
+}

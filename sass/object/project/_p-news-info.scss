@@ -38,5 +38,12 @@
     margin-top: initial;
     flex: 1;
     margin-right: rem(48);
+    transition: .3s;
+  }
+}
+
+.p-news-info__title:hover {
+  @include mq(tab) {
+    color: $accent;
   }
 }
