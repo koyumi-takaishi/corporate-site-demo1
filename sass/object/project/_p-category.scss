@@ -1,0 +1,30 @@
+.p-category {
+  margin-top: rem(-16);
+}
+
+.p-category__link {
+  margin-top: rem(16);
+  margin-right: rem(40);
+  letter-spacing: 0.125em;
+  line-height: 1.4375;
+  display: inline-block;
+}
+
+.p-category__link:hover {
+  @include mq(tab) {
+    color: $accent;
+    transition: .3s;
+  }
+}
+
+.p-category__link--current {
+  background-color: $text-color;
+  color: $text-sub;
+  padding: rem(3) rem(10);
+}
+
+.p-category__link--current:hover {
+  @include mq(tab) {
+    color: initial;
+  }
+}

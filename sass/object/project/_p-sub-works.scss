@@ -1,0 +1,30 @@
+.p-sub-works__inner {
+  margin: 0 auto;
+	max-width: 100%;
+	width: 1150px;
+	height: inherit;
+	@include mq(tab) {
+		padding-right: $padding-pc;
+		padding-left: $padding-pc;
+	}
+}
+
+.p-sub-works__cards {
+  margin-top: rem(17);
+  @include mq(tab) {
+    margin-top: rem(40);
+  }
+}
+
+
+.hasse__chinchin {
+  height: 30%;
+}
+
+.hasse__chinchin:hover {
+  height: 50%;
+}
+
+.hasse__chinchin:active {
+  height: 100%;
+}

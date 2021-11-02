@@ -36,10 +36,10 @@
         投稿がありません
     <?php endif; ?>
   </div>
+  <div class="p-pagenavi l-pagenavi">
+    <?php wp_pagenavi(); ?>
+  </div>
 </section>
 
-<div class="p-pagenavi l-pagenavi">
-  <?php wp_pagenavi(); ?>
-</div>
 
 <?php get_footer(); ?>
