@@ -1,11 +1,14 @@
 .p-cards {
   @include mq(tab) {
     display: flex;
+    flex-wrap: wrap;
   }
 }
 
 .p-cards__card {
-  flex: 1;
+  @include mq(tab) {
+    width: 31%;
+  }
 }
 
 .p-cards__card:not(:nth-child(3n)) {
@@ -18,5 +21,11 @@
   margin-top: rem(24);
   @include mq(tab) {
     margin-top: rem(0);
+  }
+}
+
+.p-cards__card:nth-child(n+4) {
+  @include mq(tab) {
+    margin-top: rem(48);
   }
 }

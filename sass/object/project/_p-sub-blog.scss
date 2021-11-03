@@ -1,0 +1,6 @@
+.p-sub-blog__cards {
+  margin-top: rem(37);
+  @include mq(tab) {
+    margin-top: rem(40);
+  }
+}

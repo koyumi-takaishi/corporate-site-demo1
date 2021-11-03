@@ -6,7 +6,7 @@
   </div>
   <picture class="p-sub-mv__img">
     <source srcset="<?php echo get_template_directory_uri() ?>/assets/img/common/works-mv-pc.jpg" media="(min-width: 768px)" />
-    <img src="<?php echo get_template_directory_uri() ?>/assets/img/common/works-mv-sp.jpg" alt="高層ビルから外を眺めている3人の写真">
+    <img src="<?php echo get_template_directory_uri() ?>/assets/img/common/works-mv-sp.jpg" alt="デスクトップPCの画面">
   </picture>
 </div>
 

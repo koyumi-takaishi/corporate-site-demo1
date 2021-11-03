@@ -25,6 +25,6 @@
 
 .p-category__link--current:hover {
   @include mq(tab) {
-    color: initial;
+    color: $text-sub;
   }
 }

@@ -1,54 +1,66 @@
 <?php get_header(); ?>
 
-<p class="p-test">ブログアーカイブ</p>
-
-<div class="p-test-content">
-
-<div class="p-topics__items p-topics__items--wide">
-
-<div class="l-breadcrumb">
-  <?php if(function_exists('bcn_display'))
-{
-    bcn_display();
-}?>
+<div class="p-sub-mv">
+  <div class="p-sub-mv__wrapper">
+    <h2 class="p-sub-mv__title">制作実績</h2>
+  </div>
+  <picture class="p-sub-mv__img">
+    <source srcset="<?php echo get_template_directory_uri() ?>/assets/img/common/blog-mv-pc.jpg" media="(min-width: 768px)" />
+    <img src="<?php echo get_template_directory_uri() ?>/assets/img/common/blog-mv-sp.jpg" alt="ノートと万年筆の写真">
+  </picture>
 </div>
 
-<span class="c-blog-btn--current">ALL</span>
-
-<?php
-$terms = get_terms('blog_category');
-foreach ( $terms as $term ){
-echo '<a href="'.get_term_link($term->slug,'blog_category').'">'.$term->name.'</a>';
-}
-?>
-
-  <?php if (have_posts()) : ?>
-    <?php while (have_posts()) : the_post(); ?>
-      <div class="p-test-content">
-        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
-        <time datetime="<?php the_time('c'); ?>" class="p-topic-info__date"><?php the_time('Y.m.d'); ?></time>
-        <?php
-        $terms = get_the_terms($post->ID,'blog_category');
-        foreach( $terms as $term ) {
-        echo $term->name;
-        }
-        ?>
-        <a href="<?php the_permalink(); ?>" class="p-topic-info__text"> <?php the_title(); ?></a>
-        <!-- 記事の抜粋を表示、５５文字まで！！ -->
-        <?php the_excerpt(); ?>
-
-      </div>
-    <?php endwhile; ?>
-  <?php else : ?>
-    投稿がありません
-  <?php endif; ?>
-
+<div class="p-breadcrumb l-breadcrumb">
+  <div class="l-inner">
+    <?php if (function_exists('bcn_display')) {
+      bcn_display();
+    } ?>
+  </div>
 </div>
 
-<div class="l-pagenavi">
+<section class="p-sub-blog l-sub-blog">
+  <div class="l-inner">
+    <div class="p-sub-blog__category p-category">
+      <span class="p-category__link p-category__link--current">ALL</span>
+      <?php
+      $terms = get_terms('blog_category');
+      foreach ($terms as $term) {
+        echo '<a class="p-category__link" href="' . get_term_link($term->slug, 'blog_category') . '">' . $term->name . '</a>';
+      }
+      ?>
+    </div>
+    <div class="p-sub-blog__cards p-cards">
+      <?php if (have_posts()) : ?>
+        <?php while (have_posts()) : the_post(); ?>
+          <a class="p-cards__card p-card" href="<?php the_permalink(); ?>">
+            <div class="p-card__img">
+              <?php the_post_thumbnail('full'); ?>
+            </div>
+            <div class="p-card__title"><?php the_title(); ?></div>
+            <div class="p-card__box">
+              <!-- 記事の抜粋を表示、５５文字まで！！ -->
+              <p class="p-card__excerpt"><?php echo get_the_excerpt() ?></p>
+              <div class="p-card__meta">
+                <span class="p-card__category"><?php
+                $terms = get_the_terms($post->ID, 'blog_category');
+                foreach ($terms as $term) {
+                  echo $term->name;
+                }
+                ?></span>
+                <time datetime="<?php the_time('c'); ?>" class="p-card__date"><?php the_time('Y.m.d'); ?></time>
+              </div>
+            </div>
+          </a>
+        <?php endwhile; ?>
+      <?php else : ?>
+        投稿がありません
+      <?php endif; ?>
+    </div>
+  </div>
+
+  <div class="p-pagenavi l-pagenavi">
   <?php wp_pagenavi(); ?>
-</div>
-
-</div>
+  </div>
+</section>
 
 <?php get_footer(); ?>

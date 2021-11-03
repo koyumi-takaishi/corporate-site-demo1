@@ -2,11 +2,12 @@
 .l-inner {
 	margin: 0 auto;
 	max-width: 100%;
-	width: 1150px;
+	width: 540px;
 	height: inherit;
 	padding-right: $padding-sp;
 	padding-left: $padding-sp;
 	@include mq(tab) {
+		width: 1150px;
 		padding-right: $padding-pc;
 		padding-left: $padding-pc;
 	}
