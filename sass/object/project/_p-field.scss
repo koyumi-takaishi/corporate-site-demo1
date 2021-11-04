@@ -1,0 +1,20 @@
+.p-field__title {
+  background-color: $background;
+  margin-left: rem(24);
+  display: inline-block;
+  font-size: rem(20);
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+  padding: rem(8) rem(24);
+  border: 1px solid $text-color;
+  border-radius: rem(32);
+}
+
+.p-field__text {
+  margin-top: rem(-24);
+  padding: rem(53) rem(10) rem(32);
+  border: 1px solid $text-color;
+  @include mq(tab) {
+    padding: rem(44) rem(22) rem(32);
+  }
+}

@@ -1,0 +1,64 @@
+.p-single__inner {
+  margin: 0 auto;
+	max-width: 100%;
+	width: 540px;
+	height: inherit;
+	padding-right: $padding-sp;
+	padding-left: $padding-sp;
+	@include mq(tab) {
+		width: 850px;
+		padding-right: $padding-pc;
+		padding-left: $padding-pc;
+	}
+}
+
+.p-single__title {
+  font-weight: 400;
+  font-size: rem(20);
+  letter-spacing: 0.02em;
+  line-height: 1.75;
+  @include mq(tab) {
+    font-weight: 500;
+    font-size: rem(23);
+    letter-spacing: 0.0173913em;
+    line-height: 1.52173913;
+  }
+}
+
+.p-single__meta {
+  margin-top: rem(6);
+  @include mq(tab) {
+    margin-top: rem(22);
+  }
+}
+
+.p-single__time {
+  font-size: rem(16);
+  letter-spacing: 0.025em;
+  line-height: 1.01875;
+  display: inline-block;
+  margin-right: rem(30);
+}
+
+.p-single__category {
+  font-size: rem(16);
+  margin-top: rem(10);
+  display: inline-block;
+  padding: rem(8) rem(20);
+  letter-spacing: 0.125em;
+  line-height: 1.4375;
+  border: 1px solid $text-color;
+}
+
+.p-single__field {
+  margin-top: rem(32);
+  @include mq(tab) {
+    margin-top: rem(48);
+  }
+}
+
+.p-single__field:first-of-type {
+  @include mq(tab) {
+    margin-top: rem(80);
+  }
+}

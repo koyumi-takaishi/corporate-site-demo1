@@ -1,0 +1,6 @@
+.l-gallery {
+  margin-top: rem(16);
+  @include mq(tab) {
+    margin-top: rem(40);
+  }
+}

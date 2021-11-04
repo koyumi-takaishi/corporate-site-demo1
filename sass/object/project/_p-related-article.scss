@@ -1,0 +1,16 @@
+.p-related-article__title {
+  text-align: center;
+  font-size: rem(16);
+  letter-spacing: 0.125em;
+  line-height: 1.4375;
+  padding: rem(9) 0;
+  background-color: $background-sub;
+  border: 1px solid $text-color;
+}
+
+.p-related-article__cards {
+  margin-top: rem(32);
+  @include mq(tab) {
+    margin-top: rem(80);
+  }
+}

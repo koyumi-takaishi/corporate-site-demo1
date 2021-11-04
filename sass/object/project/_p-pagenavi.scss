@@ -7,6 +7,7 @@
 .p-pagenavi .previouspostslink {
   padding: 0 rem(12);
   border: 1px solid $text-color;
+  transition: .3s;
 }
 
 .p-pagenavi .nextpostslink:hover,
@@ -15,13 +16,13 @@
     background-color: #fff;
     color: $text-sub;
     border: 1px solid $text-color;
-    transition: .3s;
   }
 }
 
 .p-pagenavi .page {
   padding: 0 rem(8);
   border: 1px solid $text-color;
+  transition: .3s;
 }
 
 .p-pagenavi .page:hover {
@@ -29,7 +30,6 @@
     background-color: #fff;
     color: $text-sub;
     border: 1px solid $text-color;
-    transition: .3s;
   }
 }
 

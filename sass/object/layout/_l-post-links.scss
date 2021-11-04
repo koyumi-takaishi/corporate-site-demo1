@@ -1,0 +1,6 @@
+.l-post-links {
+  margin-top: rem(80);
+  @include mq(tab) {
+    margin-top: rem(104);
+  }
+}

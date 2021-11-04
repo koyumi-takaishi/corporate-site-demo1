@@ -23,27 +23,34 @@ jQuery(function ($) {
 			clickable: true,
 		}
 	}
-	new Swiper('.swiper-1', swipeOption);
+	new Swiper('.swiper-front', swipeOption);
 
 	// single-worksのスライダー
 	//メイン
-	var slider = new Swiper ('.gallery-slider', {
+	var slider = new Swiper ('.p-gallery__slider', {
 		slidesPerView: 1,
 		centeredSlides: true,
 		loop: true,
-		loopedSlides: 6, //スライドの枚数と同じ値を指定
+		loopedSlides: 8, //スライドの枚数と同じ値を指定
 		navigation: {
 				nextEl: '.swiper-button-next',
 				prevEl: '.swiper-button-prev',
 		},
 	});
 	//サムネイル
-	var thumbs = new Swiper ('.gallery-thumbs', {
+	var thumbs = new Swiper ('.p-gallery__thumbs', {
 		slidesPerView: 'auto',
-		spaceBetween: 10,
+		spaceBetween: 24,
 		centeredSlides: true,
 		loop: true,
 		slideToClickedSlide: true,
+		breakpoints: {
+			// when window width is >= 768px
+			768: {
+				centeredSlides: false,
+				spaceBetween: 8,
+			}
+		}
 	});
 	//4系～
 	//メインとサムネイルを紐づける

@@ -20,7 +20,7 @@ $contact = esc_url(home_url('/contact/'));
       <div class="p-mv__sub-title">サブタイトルが入ります</div>
     </div>
   </div>
-  <div class="swiper">
+  <div class="swiper swiper-front">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <div class="slide-img">
@@ -92,7 +92,7 @@ $contact = esc_url(home_url('/contact/'));
   <div class="p-works__wrapper">
     <div class="p-works__inner">
       <div class="p-works__slide p-works-slide">
-        <div class="swiper">
+        <div class="swiper swiper-front">
           <div class="swiper-wrapper">
             <?php
             $works_query = new WP_Query(

@@ -1,0 +1,28 @@
+.p-post-links {
+  text-align: center;
+}
+
+.p-post-links__post-link {
+  display: inline-block;
+}
+
+.p-post-links__archive-link,
+.p-post-links__post-link a {
+  display: inline-block;
+  padding: 0 rem(12);
+  border: 1px solid $text-color;
+  transition: .3s;
+}
+
+.p-post-links__archive-link {
+  margin: 0 rem(48);
+}
+
+.p-post-links__archive-link:hover,
+.p-post-links__post-link a:hover {
+  @include mq(tab) {
+    background-color: #fff;
+    color: $text-sub;
+    border: 1px solid $text-color;
+  }
+}

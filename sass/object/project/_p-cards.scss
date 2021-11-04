@@ -11,13 +11,27 @@
   }
 }
 
+.p-cards__card--related {
+  @include mq(tab) {
+    width: 22.7%;
+  }
+}
+
 .p-cards__card:not(:nth-child(3n)) {
   @include mq(tab) {
     margin-right: rem(25);
   }
 }
 
-.p-cards__card:not(:first-child) {
+
+.p-cards__card--related:not(:nth-child(4n)) {
+  @include mq(tab) {
+    margin-right: rem(33);
+  }
+}
+
+.p-cards__card:not(:first-child),
+.p-cards__card--related:not(:first-child) {
   margin-top: rem(24);
   @include mq(tab) {
     margin-top: rem(0);
