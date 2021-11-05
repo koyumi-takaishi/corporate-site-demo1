@@ -62,3 +62,34 @@
     margin-top: rem(80);
   }
 }
+
+.p-single__thumbnail {
+  margin-top: rem(16);
+  position: relative;
+  width: 100vw;
+  margin: 0 calc(50% - 50vw);
+  @include mq(tab) {
+    width: 100%;
+    margin: rem(32) 0 0;
+  }
+}
+
+.p-single__thumbnail::before {
+  content: "";
+  display: block;
+  padding-top: 66.933333%;
+  @include mq(tab) {
+    padding-top: 53.441802%;
+  }
+}
+
+.p-single__thumbnail img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  object-fit: cover;
+  object-position: center;
+}

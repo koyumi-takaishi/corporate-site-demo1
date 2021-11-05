@@ -29,9 +29,10 @@
             <span class="p-single__category"><?php echo $category[0]->cat_name; ?></span>
           <?php endif; ?>
         </div>
-        <!-- アイキャッチ画像表示 -->
-        <?php the_post_thumbnail('full'); ?>
-        <div class="content">
+        <div class="p-single__thumbnail">
+          <?php the_post_thumbnail('full'); ?>
+        </div>
+        <div class="p-single__content p-single-content">
           <!-- 記事の本文を表示 -->
           <?php the_content(); ?>
         </div>

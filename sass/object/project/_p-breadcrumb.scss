@@ -10,6 +10,6 @@
 
 .p-breadcrumb a:hover {
   @include mq(tab) {
-    opacity: $opacity;
+    color: $accent;
   }
 }

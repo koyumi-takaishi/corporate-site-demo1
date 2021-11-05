@@ -1,0 +1,13 @@
+.p-sub-contactForm {
+  font-size: rem(14);
+  @include mq(tab) {
+    display: flex;
+  }
+}
+
+.p-sub-contactForm__left {
+  
+  @include mq(tab) {
+    width: rem(134);
+  }
+}

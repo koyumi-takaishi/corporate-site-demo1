@@ -1,0 +1,25 @@
+.p-overview-info__wrapper {
+  display: flex;
+  font-size: rem(16);
+  border-bottom: 1px solid $text-color;
+}
+
+.p-overview-info__title {
+  line-height: 1.3125;
+  width: rem(114);
+  padding-left: rem(5);
+  padding-top: rem(17);
+  padding-bottom: rem(24);
+  @include mq(tab) {
+    padding-left: 0;
+    width: rem(152);
+  }
+}
+
+.p-overview-info__text {
+  line-height: 1.5;
+  letter-spacing: 0.0625em;
+  flex: 1;
+  padding-top: rem(17);
+  padding-bottom: rem(19);
+}
