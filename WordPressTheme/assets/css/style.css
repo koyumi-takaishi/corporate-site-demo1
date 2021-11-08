@@ -37,14 +37,17 @@ select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	background: none;
-	border: 1px solid #ccc;
+	background: #fff;
 	border-radius: 0;
-	font-size: 16px;
+	font-size: 0.875rem;
+	letter-spacing: 0.05em;
+	line-height: 1.875;
 	margin-left: 0;
 	margin-right: 0;
 	outline: none;
-	padding: 4px;
+	padding: 0.625rem;
+	resize: none;
+	width: 100%;
 }
 
 textarea {
@@ -144,15 +147,12 @@ input[type="button"] {
 	-webkit-appearance: button;
 	-moz-appearance: button;
 	appearance: button;
-	background: #efefef;
-	border: 1px solid #999;
+	border: none;
 	border-radius: 0;
 	color: #000;
 	cursor: pointer;
 	display: inline-block;
-	font-size: 20px;
 	margin: 0;
-	padding: 10px 30px;
 }
 
 /* ブラウザ対策
@@ -262,15 +262,6 @@ input[type="radio"]:checked + span::after {
 }
 
 /* button */
-
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover,
-button:hover {
-	background: #3498db;
-	border-color: #3498db;
-	color: #fff;
-}
 
 /* focus */
 
@@ -432,6 +423,10 @@ select {
 
 /* Remove all animations and transitions for people that prefer not to see them */
 
+.l-404 {
+	margin: 5rem 0;
+}
+
 .l-blog {
 	margin-top: 6.1875rem;
 }
@@ -524,8 +519,21 @@ select {
 	margin-top: 5.3125rem;
 }
 
+.l-thanks {
+	margin: 5rem 0;
+}
+
 .l-works {
 	margin-top: 7.5rem;
+}
+
+.c-btn-contact {
+	background-color: #fff;
+	font-size: 1.25rem;
+	letter-spacing: 0.1em;
+	line-height: 1.45;
+	padding: 0.625rem 0;
+	width: 100%;
 }
 
 .c-button-main {
@@ -621,6 +629,28 @@ select {
 .c-test {
 	color: red;
 	font-size: 1.25rem;
+}
+
+.p-404 {
+	text-align: center;
+}
+
+.p-404__title {
+	color: rgba(249, 248, 113, 0.3);
+	font-size: 2.5rem;
+	letter-spacing: 0.05em;
+	margin-bottom: 5rem;
+}
+
+.p-404__text {
+	font-size: 1.25rem;
+	letter-spacing: 0.1em;
+	line-height: 1.45;
+	margin-bottom: 5rem;
+}
+
+.p-404__button {
+	margin: 0 auto;
 }
 
 .p-blog__cards {
@@ -748,6 +778,21 @@ select {
 
 .p-contact__button {
 	margin-top: 2.5rem;
+}
+
+.p-content {
+	position: relative;
+}
+
+.p-content::before {
+	background-image: linear-gradient(to right top, transparent 49.9%, rgba(249, 248, 113, 0.5) 50%, rgba(249, 248, 113, 0.5) calc(50% + 1px), transparent calc(50.1% + 1px));
+	content: "";
+	display: block;
+	height: 180%;
+	position: absolute;
+	top: -3.125rem;
+	width: 100%;
+	z-index: -1;
 }
 
 .p-content__wrapper {
@@ -1144,6 +1189,21 @@ select {
 	padding-top: 1.0625rem;
 }
 
+.p-overview {
+	position: relative;
+}
+
+.p-overview::before {
+	background-image: linear-gradient(to top left, transparent 49.9%, rgba(249, 248, 113, 0.5) 50%, rgba(249, 248, 113, 0.5) calc(50% + 1px), transparent calc(50.1% + 1px));
+	content: "";
+	display: block;
+	height: 200%;
+	position: absolute;
+	top: -36.25rem;
+	width: 100%;
+	z-index: -2;
+}
+
 .p-overview__wrapper {
 	background-color: #3d3d3d;
 	margin-top: 3rem;
@@ -1445,6 +1505,36 @@ select {
 
 .p-sub-contactForm {
 	font-size: 0.875rem;
+	letter-spacing: 0.05em;
+	line-height: 1.85;
+}
+
+.p-sub-contactForm__right {
+	margin-top: 1rem;
+}
+
+.p-sub-contact__button {
+	margin-top: 3rem;
+	text-align: center;
+}
+
+input[type="text"].wpcf7-not-valid,
+input[type="email"].wpcf7-not-valid,
+textarea.wpcf7-not-valid {
+	background-color: #FFDCDC;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output {
+	border: none;
+}
+
+.wpcf7-form {
+	margin-bottom: 5.3125rem;
+}
+
+.wpcf7-response-output {
+	color: #FF5757;
+	text-align: center;
 }
 
 .p-sub-content-detail__wrapper:not(:first-child) {
@@ -1568,6 +1658,21 @@ select {
 .p-test-content {
 	border: 1px solid red;
 	padding: 3.75rem 1.25rem;
+}
+
+.p-thanks {
+	text-align: center;
+}
+
+.p-thanks__text {
+	font-size: 1.25rem;
+	letter-spacing: 0.1em;
+	line-height: 1.45;
+	margin-bottom: 5rem;
+}
+
+.p-thanks__button {
+	margin: 0 auto;
 }
 
 .p-works-card {
@@ -1701,6 +1806,14 @@ select {
 	margin-top: 1.5rem;
 }
 
+.u-hidden-pc {
+	display: block;
+}
+
+.u-hidden-sp {
+	display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
 
 html:focus-within {
@@ -1726,16 +1839,30 @@ html {
 	font-size: 16px;
 }
 
-.u-hidden-sp {
-	display: none;
-}
-
 }
 
 @media screen and (min-width: 768px) {
 
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="number"],
+input[type="datetime"],
+input[type="week"],
+textarea,
+select {
+	width: 33.75rem;
+}
+
 html {
 	font-size: 1.3913vw;
+}
+
+.l-404 {
+	margin: 9.375rem 0;
 }
 
 .l-blog {
@@ -1808,13 +1935,31 @@ html {
 	margin-top: 7.1875rem;
 }
 
+.l-thanks {
+	margin: 9.375rem 0;
+}
+
 .l-works {
 	margin-top: 13.3125rem;
 }
 
+.c-btn-contact {
+	font-size: 1rem;
+	padding: 1.25rem 0;
+	transition: .3s;
+	width: 22.5rem;
+}
+
+.c-btn-contact:hover {
+	background-color: #333;
+	color: #fff;
+}
+
 .c-button-main {
 	font-size: 1rem;
+	line-height: 3.375rem;
 	overflow: hidden;
+	padding: 0.1875rem;
 	position: relative;
 	width: 22.5rem;
 	z-index: 1;
@@ -1877,6 +2022,17 @@ html {
 	font-size: 3.125rem;
 }
 
+.p-404__title {
+	font-size: 3.75rem;
+	letter-spacing: 0.033333em;
+}
+
+.p-404__text {
+	font-size: 1.875rem;
+	letter-spacing: 0.0666666em;
+	line-height: 1.1666666;
+}
+
 .p-blog__title .p-section-title__sub {
 	right: 0;
 	top: -2.8125rem;
@@ -1910,7 +2066,7 @@ html {
 }
 
 .p-cards__card {
-	width: 31%;
+	width: 31.77%;
 }
 
 .p-cards__card--related {
@@ -1960,8 +2116,14 @@ html {
 	margin: 3.8125rem auto 0;
 }
 
+.p-content::before {
+	height: 75.375rem;
+	top: -6.6875rem;
+	width: 95.390625%;
+}
+
 .p-content__title .p-section-title__sub {
-	left: 7%;
+	left: 0;
 	top: -2.8125rem;
 	transform: initial;
 }
@@ -2256,6 +2418,12 @@ html {
 	width: 9.5rem;
 }
 
+.p-overview::before {
+	height: 77.5rem;
+	top: -13.6875rem;
+	width: 95.390625%;
+}
+
 .p-overview__title .p-section-title__sub {
 	top: -2.8125rem;
 	transform: initial;
@@ -2394,17 +2562,41 @@ html {
 }
 
 .p-sub-contact__inner {
+	max-width: 935px;
 	padding-left: 25px;
 	padding-right: 25px;
-	width: 950px;
+	width: 81.21875%;
 }
 
 .p-sub-contactForm {
 	display: flex;
+	justify-content: center;
+	position: relative;
 }
 
 .p-sub-contactForm__left {
-	width: 8.375rem;
+	left: 0;
+	margin-right: 1.5rem;
+	padding-top: 0.6875rem;
+	position: absolute;
+	text-align: right;
+	width: 9.0625rem;
+}
+
+.p-sub-contactForm__right {
+	margin-top: 0;
+}
+
+.p-sub-contact__button {
+	margin-top: 3.5rem;
+}
+
+.wpcf7-form {
+	margin-bottom: 9.375rem;
+}
+
+.wpcf7-response-output {
+	font-size: 1rem;
 }
 
 .p-sub-content-detail__wrapper {
@@ -2474,6 +2666,12 @@ html {
 .p-test {
 	color: green;
 	font-size: 3.125rem;
+}
+
+.p-thanks__text {
+	font-size: 1.875rem;
+	letter-spacing: 0.0666666em;
+	line-height: 1.1666666;
 }
 
 .p-works-card {
@@ -2587,6 +2785,14 @@ html {
 	margin-top: initial;
 }
 
+.u-hidden-pc {
+	display: none;
+}
+
+.u-hidden-sp {
+	display: block;
+}
+
 }
 
 @media (min-width: 1150px) {
@@ -2605,10 +2811,6 @@ html {
 
 .p-test {
 	color: blue;
-}
-
-.u-hidden-pc {
-	display: none;
 }
 
 }

@@ -6,7 +6,8 @@
 	padding-right: $padding-sp;
 	padding-left: $padding-sp;
 	@include mq(tab) {
-		width: 950px;
+		width: 81.21875%;
+    max-width: 935px;
 		padding-right: $padding-pc;
 		padding-left: $padding-pc;
 	}

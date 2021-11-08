@@ -58,6 +58,17 @@ function my_script_init() {
 add_action('wp_enqueue_scripts', 'my_script_init');
 
 
+/**
+ * お問い合わせ送信後、サンクスページに遷移
+ */
+add_action( 'wp_footer', 'add_thanks_page' );
+function add_thanks_page() { ?>
+<script>
+document.addEventListener('wpcf7mailsent', function(event) {
+  location = '<?php echo esc_url(home_url('/thanks/')); ?>'; /* 遷移先のURL */
+}, false);
+</script>
+<?php }
 
 
 /**
@@ -100,6 +111,7 @@ add_action('wp_enqueue_scripts', 'my_script_init');
 // 	);
 // }
 // add_action( 'widgets_init', 'my_widget_init' );
+
 
 
 /**

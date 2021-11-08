@@ -70,9 +70,11 @@ $contact = esc_url(home_url('/contact/'));
 </section>
 
 <section class="p-content l-content">
-  <div class="p-content__title p-section-title">
-    <h2 class="p-section-title__main">事業内容</h2>
-    <span class="p-section-title__sub p-section-title__sub--content">Content</span>
+  <div class="l-inner">
+    <div class="p-content__title p-section-title">
+      <h2 class="p-section-title__main">事業内容</h2>
+      <span class="p-section-title__sub">Content</span>
+    </div>
   </div>
   <div class="p-content__wrapper">
     <a class="p-content__link p-content__link--1" href="<?php echo $content; ?>"><span>経営理念ページへ</span></a>

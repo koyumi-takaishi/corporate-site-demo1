@@ -1,13 +1,61 @@
 .p-sub-contactForm {
   font-size: rem(14);
+  letter-spacing: 0.05em;
+  line-height: 1.85;
   @include mq(tab) {
     display: flex;
+    justify-content: center;
+    position: relative;
   }
 }
 
 .p-sub-contactForm__left {
-  
   @include mq(tab) {
-    width: rem(134);
+    padding-top: rem(11);
+    width: rem(145);
+    margin-right: rem(24);
+    text-align: right;
+    position: absolute;
+    left: 0;
+  }
+}
+
+.p-sub-contactForm__right {
+  margin-top: rem(16);
+  @include mq(tab) {
+    margin-top: 0;
+  }
+}
+
+.p-sub-contact__button {
+  text-align: center;
+  margin-top: rem(48);
+  @include mq(tab) {
+    margin-top: rem(56);
+  }
+}
+
+input[type="text"].wpcf7-not-valid,
+input[type="email"].wpcf7-not-valid,
+textarea.wpcf7-not-valid {
+  background-color: #FFDCDC;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output {
+  border: none;
+}
+
+.wpcf7-form {
+  margin-bottom: rem(85);
+  @include mq(tab) {
+    margin-bottom: rem(150);
+  }
+}
+
+.wpcf7-response-output {
+  text-align: center;
+  color: #FF5757;
+  @include mq(tab) {
+    font-size: rem(16);
   }
 }

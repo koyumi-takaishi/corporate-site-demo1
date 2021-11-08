@@ -1,0 +1,30 @@
+.p-404 {
+  text-align: center;
+}
+
+.p-404__title {
+  font-size: rem(40);
+  letter-spacing: 0.05em;
+  margin-bottom: rem(80);
+  color: rgba($color: $accent, $alpha: 0.3);
+  @include mq(tab) {
+    font-size: rem(60);
+    letter-spacing: 0.033333em;
+  }
+}
+
+.p-404__text {
+  font-size: rem(20);
+  letter-spacing: 0.1em;
+  line-height: 1.45;
+  margin-bottom: rem(80);
+  @include mq(tab) {
+    font-size: rem(30);
+    letter-spacing: 0.0666666em;
+    line-height: 1.1666666;
+  }
+}
+
+.p-404__button {
+  margin: 0 auto;
+}
