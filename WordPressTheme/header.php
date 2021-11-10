@@ -13,7 +13,6 @@
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
 
-  <!-- 各ページリンク -->
   <?php
   $home = esc_url( home_url( '/' ) );
   $content = esc_url( home_url( '/content/' ) );

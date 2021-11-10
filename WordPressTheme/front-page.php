@@ -174,7 +174,6 @@ $contact = esc_url(home_url('/contact/'));
             </div>
             <div class="p-card__title"><?php the_title(); ?></div>
             <div class="p-card__box">
-              <!-- 記事の抜粋を表示、５５文字まで！！ -->
               <p class="p-card__excerpt"><?php echo get_the_excerpt() ?></p>
               <div class="p-card__meta">
                 <span class="p-card__category"><?php

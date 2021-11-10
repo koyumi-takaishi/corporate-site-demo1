@@ -26,21 +26,19 @@
       <div class="p-gallery l-gallery">
         <div class="p-gallery__inner">
           <div class="swiper p-gallery__slider">
-            <!-- メイン -->
             <div class="swiper-wrapper">
-              <!-- カスタムフィールドのグループ内のサブフィールドの画像出力 -->
               <?php if (have_rows('images')) :  ?>
                 <?php while (have_rows('images')) : the_row(); ?>
                   <?php
                   $i = 1;
-                  $max = 8; //画像の最大枚数
-                  while ($i <= $max) { //iが9以下の場合ループする
-                    $name = 'image' . $i; //image1〜image9で繰り返していく
-                    $image = get_sub_field($name); //サブフィールドの情報取得
+                  $max = 8;
+                  while ($i <= $max) {
+                    $name = 'image' . $i;
+                    $image = get_sub_field($name);
                     if ($image) {
                       echo '<div class="swiper-slide"><img src="' . $image['url'] . '"></div>';
-                    } //imgタグに画像URL入れて表示
-                    $i++; //iに1足す
+                    }
+                    $i++;
                   }
                   ?>
                 <?php endwhile; ?>
@@ -49,22 +47,20 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
           </div>
-          <!-- サムネイル -->
           <div class="swiper p-gallery__thumbs">
             <div class="swiper-wrapper">
-              <!-- カスタムフィールドのグループ内のサブフィールドの画像出力 -->
               <?php if (have_rows('images')) :  ?>
                 <?php while (have_rows('images')) : the_row(); ?>
                   <?php
                   $i = 1;
-                  $max = 8; //画像の最大枚数
-                  while ($i <= $max) { //iが9以下の場合ループする
-                    $name = 'image' . $i; //image1〜image9で繰り返していく
-                    $image = get_sub_field($name); //サブフィールドの情報取得
+                  $max = 8;
+                  while ($i <= $max) {
+                    $name = 'image' . $i;
+                    $image = get_sub_field($name);
                     if ($image) {
                       echo '<div class="swiper-slide"><img src="' . $image['url'] . '"></div>';
-                    } //imgタグに画像URL入れて表示
-                    $i++; //iに1足す
+                    }
+                    $i++;
                   }
                   ?>
                 <?php endwhile; ?>
@@ -74,7 +70,6 @@
         </div>
       </div>
       <div class="p-single__inner">
-        <!-- カスタムフィールド表示 -->
         <?php if (get_field('point1-title')) : ?>
           <div class="p-single__field p-field">
             <span class="p-field__title"><?php the_field('point1-title'); ?></span>
@@ -95,11 +90,8 @@
         <?php endif; ?>
 
         <div class="p-post-links l-post-links">
-          <!-- 前後のページへのリンクを表示する（パラメーターは表示したい文字） -->
           <div class="p-post-links__post-link"><?php previous_post_link('%link', 'PREV'); ?></div>
-          <!-- 一覧へ -->
           <a class="p-post-links__archive-link" href="<?php echo esc_url(home_url('/works/')); ?>">一覧</a>
-          <!-- 前後のページへのリンクを表示する（パラメーターは表示したい文字） -->
           <div class="p-post-links__post-link"><?php previous_post_link('%link', 'NEXT'); ?></div>
         </div>
       </div>
@@ -112,27 +104,26 @@
   <div class="l-inner">
     <h2 class="p-related-article__title">関連記事</h2>
 
-    <!-- 関連記事 設定 -->
-    <?php // 現在表示されている投稿と同じタームに分類された投稿を取得
-    $taxonomy_slug = 'works_category'; // タクソノミーのスラッグを指定
-    $post_type_slug = 'works'; // 投稿タイプのスラッグを指定
-    $post_terms = wp_get_object_terms($post->ID, $taxonomy_slug); // タクソノミーの指定
-    if ($post_terms && !is_wp_error($post_terms)) { // 値があるときに作動
-      $terms_slug = array(); // 配列のセット
-      foreach ($post_terms as $value) { // 配列の作成
-        $terms_slug[] = $value->slug; // タームのスラッグを配列に追加
+    <?php
+    $taxonomy_slug = 'works_category';
+    $post_type_slug = 'works';
+    $post_terms = wp_get_object_terms($post->ID, $taxonomy_slug);
+    if ($post_terms && !is_wp_error($post_terms)) {
+      $terms_slug = array();
+      foreach ($post_terms as $value) {
+        $terms_slug[] = $value->slug;
       }
     }
     $args = array(
-      'post_type' => $post_type_slug, // 投稿タイプを指定
-      'posts_per_page' => 4, // 表示件数を指定
-      'orderby' =>  'DESC', // ランダムに投稿を取得
-      'post__not_in' => array($post->ID), // 現在の投稿を除外
-      'tax_query' => array( // タクソノミーパラメーターを使用
+      'post_type' => $post_type_slug,
+      'posts_per_page' => 4,
+      'orderby' =>  'DESC',
+      'post__not_in' => array($post->ID),
+      'tax_query' => array(
         array(
-          'taxonomy' => $taxonomy_slug, // タームを取得タクソノミーを指定
-          'field' => 'slug', // スラッグに一致するタームを返す
-          'terms' => $terms_slug // タームの配列を指定
+          'taxonomy' => $taxonomy_slug,
+          'field' => 'slug',
+          'terms' => $terms_slug
         )
       )
     );
@@ -147,7 +138,6 @@
             </div>
             <div class="p-card__title"><?php the_title(); ?></div>
             <div class="p-card__box">
-              <!-- 記事の抜粋を表示、５５文字まで！！ -->
               <p class="p-card__excerpt">
                 <?php if (get_field('point1-title')) : ?>
                   <?php

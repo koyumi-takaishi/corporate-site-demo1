@@ -11,7 +11,6 @@
   </section>
 <?php endif; ?>
 
-<!-- 各ページリンク -->
 <?php
 $home = esc_url( home_url( '/' ) );
 $content = esc_url( home_url( '/content/' ) );
