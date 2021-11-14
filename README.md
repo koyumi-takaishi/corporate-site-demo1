@@ -1,4 +1,5 @@
 # corporate-site-demo1
+- 架空コーポレートサイトのThemesフォルダの中身
 
 ## 構成
 - WordPressTheme

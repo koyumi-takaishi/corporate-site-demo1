@@ -176,3 +176,9 @@ function my_excerpt_more( $more ) {
 
 }
 add_filter( 'excerpt_more', 'my_excerpt_more' );
+
+
+/**
+ * the_excerpt()に付与されるpタグを削除
+ */
+remove_filter('the_excerpt', 'wpautop');

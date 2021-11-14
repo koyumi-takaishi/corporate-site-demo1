@@ -19,7 +19,7 @@
             <?php
             $terms = get_the_terms($post->ID,'blog_category');
             foreach( $terms as $term ) {
-            echo '<a class="p-single__category" href="'.get_term_link($term->slug,'blog_category').'">'.$term->name.'</a>';
+            echo '<a class="p-single__category p-single__category--blog" href="'.get_term_link($term->slug,'blog_category').'">'.$term->name.'</a>';
             }
             ?>
           <?php else: ?>
@@ -28,7 +28,7 @@
           <?php endif; ?>
         </div>
         <div class="p-single__thumbnail">
-          <?php the_post_thumbnail('full'); ?>
+          <?php the_post_thumbnail('full',array('alt' => the_title_attribute('echo=0'))); ?>
         </div>
         <div class="p-single__content p-single-content">
           <?php the_content(); ?>
@@ -85,7 +85,7 @@
           <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
             <a class="p-cards__card--related p-card" href="<?php the_permalink(); ?>">
               <div class="p-card__img p-card__img--related">
-                <?php the_post_thumbnail('full'); ?>
+                <?php the_post_thumbnail('full',array('alt' => the_title_attribute('echo=0'))); ?>
               </div>
               <div class="p-card__title"><?php the_title(); ?></div>
               <div class="p-card__box">
@@ -133,7 +133,7 @@
         ?>
           <a class="p-cards__card--related p-card" href="<?php the_permalink(); ?>">
             <div class="p-card__img p-card__img--related">
-              <?php the_post_thumbnail('full'); ?>
+              <?php the_post_thumbnail('full',array('alt' => the_title_attribute('echo=0'))); ?>
             </div>
             <div class="p-card__title"><?php the_title(); ?></div>
             <div class="p-card__box">

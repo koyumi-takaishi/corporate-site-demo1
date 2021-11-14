@@ -34,7 +34,7 @@
         <?php while (have_posts()) : the_post(); ?>
           <a class="p-cards__card p-card" href="<?php the_permalink(); ?>">
             <div class="p-card__img">
-              <?php the_post_thumbnail('full'); ?>
+              <?php the_post_thumbnail('full',array('alt' => the_title_attribute('echo=0'))); ?>
             </div>
             <div class="p-card__title"><?php the_title(); ?></div>
             <div class="p-card__box">

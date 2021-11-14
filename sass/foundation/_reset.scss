@@ -27,6 +27,10 @@ html {
 	}
 }
 
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
 html,
 body {
 	margin: 0;

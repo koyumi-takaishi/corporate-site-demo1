@@ -25,7 +25,7 @@
       <p class="p-sub-content__text c-content-text c-content-text--center">説明が入ります。説明が入ります。説明が入ります。説明が入ります。<br>説明が入ります。説明が入ります。説明が入ります。説明が入ります。</p>
     </div>
     <div class="p-sub-content__detail p-sub-content-detail">
-      <div class="p-sub-content-detail__wrapper">
+      <div class="p-sub-content-detail__wrapper" id="philosophy1">
         <div class="p-sub-content-detail__img">
           <img src="<?php echo get_template_directory_uri() ?>/assets/img/common/content-detail-img1.jpg" alt="テーブルで3人がパソコンを開いて話している写真">
         </div>
@@ -34,7 +34,7 @@
           <p class="p-sub-content-detail__text c-content-text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
         </div>
       </div>
-      <div class="p-sub-content-detail__wrapper">
+      <div class="p-sub-content-detail__wrapper" id="philosophy2">
         <div class="p-sub-content-detail__img">
           <img src="<?php echo get_template_directory_uri() ?>/assets/img/common/content-detail-img2.jpg" alt="パソコン画面にグラフが表示されている写真">
         </div>
@@ -43,7 +43,7 @@
           <p class="p-sub-content-detail__text c-content-text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
         </div>
       </div>
-      <div class="p-sub-content-detail__wrapper">
+      <div class="p-sub-content-detail__wrapper" id="philosophy3">
         <div class="p-sub-content-detail__img">
           <img src="<?php echo get_template_directory_uri() ?>/assets/img/common/content-detail-img3.jpg" alt="女性がスマホをタップしている写真">
         </div>

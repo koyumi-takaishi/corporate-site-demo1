@@ -23,7 +23,8 @@
 
 .p-contact__button {
   margin-top: rem(40);
+  text-align: center;
   @include mq(tab) {
-    margin: rem(61) auto 0;
+    margin-top: rem(61);
   }
 }

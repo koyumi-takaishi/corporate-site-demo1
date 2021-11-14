@@ -16,7 +16,9 @@ $contact = esc_url( home_url( '/contact/' ) );
         <span class="p-section-title__sub">Contact</span>
       </div>
       <p class="p-contact__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-      <a class="c-button-main p-contact__button" href="<?php echo $contact; ?>">お問い合わせへ</a>
+      <div class="p-contact__button">
+        <a class="c-button-main" href="<?php echo $contact; ?>">お問い合わせへ</a>
+      </div>
     </div>
   </section>
 <?php endif; ?>
@@ -54,8 +56,8 @@ $contact = esc_url( home_url( '/contact/' ) );
   </div>
   <div class="p-footer__copyright">&copy; 2021 CodeUps Inc.</div>
   <button class="c-page-top-button js-page-top-button">
-    <div class="c-page-top-button__img">
-    </div>
+    <span class="c-page-top-button__img">
+    </span>
   </button>
 </footer>
 

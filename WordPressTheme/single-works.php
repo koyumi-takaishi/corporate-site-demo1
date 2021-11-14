@@ -36,7 +36,7 @@
                     $name = 'image' . $i;
                     $image = get_sub_field($name);
                     if ($image) {
-                      echo '<div class="swiper-slide"><img src="' . $image['url'] . '"></div>';
+                      echo '<div class="swiper-slide"><img src="' . $image['url'] . '" alt="'. $image['title'] .'"></div>';
                     }
                     $i++;
                   }
@@ -58,7 +58,7 @@
                     $name = 'image' . $i;
                     $image = get_sub_field($name);
                     if ($image) {
-                      echo '<div class="swiper-slide"><img src="' . $image['url'] . '"></div>';
+                      echo '<div class="swiper-slide"><img src="' . $image['url'] . '" alt="'. $image['title'] .'"></div>';
                     }
                     $i++;
                   }
@@ -134,7 +134,7 @@
         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
           <a class="p-cards__card--related p-card" href="<?php the_permalink(); ?>">
             <div class="p-card__img p-card__img--related">
-              <?php the_post_thumbnail('full'); ?>
+              <?php the_post_thumbnail('full',array('alt' => the_title_attribute('echo=0'))); ?>
             </div>
             <div class="p-card__title"><?php the_title(); ?></div>
             <div class="p-card__box">

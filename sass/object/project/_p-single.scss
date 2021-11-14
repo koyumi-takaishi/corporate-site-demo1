@@ -1,3 +1,7 @@
+.p-single {
+  overflow-x: hidden;
+}
+
 .p-single__inner {
   margin: 0 auto;
 	max-width: 100%;
@@ -50,16 +54,31 @@
   border: 1px solid $text-color;
 }
 
+.p-single__category--blog {
+  @include mq(tab) {
+    transition: .3s ease-in-out;
+  }
+}
+
+.p-single__category--blog:hover {
+  @include mq(tab) {
+    background-color: #fff;
+    color: $text-sub;
+  }
+}
+
 .p-single__field {
   margin-top: rem(32);
   @include mq(tab) {
     margin-top: rem(48);
+    
   }
 }
 
 .p-single__field:first-of-type {
   @include mq(tab) {
     margin-top: rem(80);
+    
   }
 }
 
