@@ -40,7 +40,7 @@
       <div class="p-search__wrapper">
         <div class="p-search__title">性別（カスタムフィールドのタイプ：ラジオボタン）</div>
         <select name="pet-gender">
-          <option value="">選択してください</option>
+          <option value="">未選択</option>
           <option value="男の子"<?=get_query_var('pet-gender')==='男の子'?' selected':''?>>男の子</option>
           <option value="女の子"<?=get_query_var('pet-gender')==='女の子'?' selected':''?>>女の子</option>
           <option value="その他"<?=get_query_var('pet-gender')==='その他'?' selected':''?>>その他</option>
@@ -50,7 +50,7 @@
       <div class="p-search__wrapper">
         <div class="p-search__title">価格（カスタムフィールドのタイプ：数値）</div>
         <select name="pet-price">
-          <option value="">選択してください</option>
+          <option value="">未選択</option>
           <option value="100000"<?=get_query_var('pet-price')==='100000'?' selected':''?>>100,000円以下</option>
           <option value="200000"<?=get_query_var('pet-price')==='200000'?' selected':''?>>200,000円以下</option>
           <option value="300000"<?=get_query_var('pet-price')==='300000'?' selected':''?>>300,000円以下</option>
@@ -64,7 +64,7 @@
       <div class="p-search__wrapper">
         <div class="p-search__title">店舗（カスタムフィールドのタイプ：ラジオボタン）</div>
         <select name="pet-shop">
-          <option value="">選択してください</option>
+          <option value="">未選択</option>
           <option value="北海道○○店"<?=get_query_var('pet-shop')==='北海道○○店'?' selected':''?>>北海道○○店</option>
           <option value="東京△△店"<?=get_query_var('pet-shop')==='東京△△店'?' selected':''?>>東京△△店</option>
           <option value="愛知××店"<?=get_query_var('pet-shop')==='愛知××店'?' selected':''?>>愛知××店</option>
