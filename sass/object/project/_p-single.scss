@@ -71,12 +71,14 @@
   margin-top: rem(32);
   @include mq(tab) {
     margin-top: rem(48);
+    
   }
 }
 
 .p-single__field:first-of-type {
   @include mq(tab) {
     margin-top: rem(80);
+    
   }
 }
 

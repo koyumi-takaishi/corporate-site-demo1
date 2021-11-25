@@ -196,7 +196,6 @@ add_filter( 'excerpt_more', 'my_excerpt_more' );
 remove_filter('the_excerpt', 'wpautop');
 
 
-
 ////////////////////////////////
 // getの値を追加
 ////////////////////////////////
