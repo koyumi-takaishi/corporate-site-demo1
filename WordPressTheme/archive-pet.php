@@ -32,18 +32,18 @@
       <!-- ペットの種類 -->
       <div class="p-search__wrapper">
         <div class="p-search__title">ペットの種類（カスタムタクソノミー）</div>
-        <label><input type="radio" name="pet_breed" value="dog"<?=get_query_var('pet_breed')==='dog'?' checked':''?>>犬</label>
-        <label><input type="radio" name="pet_breed" value="cat"<?=get_query_var('pet_breed')==='cat'?' checked':''?>>猫</label>
-        <label><input type="radio" name="pet_breed" value="other"<?=get_query_var('pet_breed')==='other'?' checked':''?>>その他</label>
+        <label><input type="radio" name="pet_breed" value="dog"<?php pet_checked('pet_breed', 'dog')?>>犬</label>
+        <label><input type="radio" name="pet_breed" value="cat"<?php pet_checked('pet_breed', 'cat')?>>猫</label>
+        <label><input type="radio" name="pet_breed" value="other"<?php pet_checked('pet_breed', 'other')?>>その他</label>
       </div>
       <!-- 性別 -->
       <div class="p-search__wrapper">
         <div class="p-search__title">性別（カスタムフィールドのタイプ：ラジオボタン）</div>
         <select name="pet-gender">
           <option value="">未選択</option>
-          <option value="男の子"<?=get_query_var('pet-gender')==='男の子'?' selected':''?>>男の子</option>
-          <option value="女の子"<?=get_query_var('pet-gender')==='女の子'?' selected':''?>>女の子</option>
-          <option value="その他"<?=get_query_var('pet-gender')==='その他'?' selected':''?>>その他</option>
+          <option value="男の子"<?php pet_checked('pet-gender', '男の子', true)?>>男の子</option>
+          <option value="女の子"<?php pet_checked('pet-gender', '女の子', true)?>>女の子</option>
+          <option value="その他"<?php pet_checked('pet-gender', 'その他', true)?>>その他</option>
         </select>
       </div>
       <!-- 価格 -->
@@ -51,12 +51,12 @@
         <div class="p-search__title">価格（カスタムフィールドのタイプ：数値）</div>
         <select name="pet-price">
           <option value="">未選択</option>
-          <option value="100000"<?=get_query_var('pet-price')==='100000'?' selected':''?>>100,000円以下</option>
-          <option value="200000"<?=get_query_var('pet-price')==='200000'?' selected':''?>>200,000円以下</option>
-          <option value="300000"<?=get_query_var('pet-price')==='300000'?' selected':''?>>300,000円以下</option>
-          <option value="400000"<?=get_query_var('pet-price')==='400000'?' selected':''?>>400,000円以下</option>
-          <option value="500000"<?=get_query_var('pet-price')==='500000'?' selected':''?>>500,000円以下</option>
-          <option value="100000"<?=get_query_var('pet-price')==='100000'?' selected':''?>>100,000円以下</option>
+          <option value="100000"<?php pet_checked('pet-price', '100000', true)?>>100,000円以下</option>
+          <option value="200000"<?php pet_checked('pet-price', '200000', true)?>>200,000円以下</option>
+          <option value="300000"<?php pet_checked('pet-price', '300000', true)?>>300,000円以下</option>
+          <option value="400000"<?php pet_checked('pet-price', '400000', true)?>>400,000円以下</option>
+          <option value="500000"<?php pet_checked('pet-price', '500000', true)?>>500,000円以下</option>
+          <option value="1000000"<?php pet_checked('pet-price', '1000000', true)?>>100,000円以下</option>
           </option>
         </select>
       </div>
@@ -65,30 +65,30 @@
         <div class="p-search__title">店舗（カスタムフィールドのタイプ：ラジオボタン）</div>
         <select name="pet-shop">
           <option value="">未選択</option>
-          <option value="北海道○○店"<?=get_query_var('pet-shop')==='北海道○○店'?' selected':''?>>北海道○○店</option>
-          <option value="東京△△店"<?=get_query_var('pet-shop')==='東京△△店'?' selected':''?>>東京△△店</option>
-          <option value="愛知××店"<?=get_query_var('pet-shop')==='愛知××店'?' selected':''?>>愛知××店</option>
-          <option value="大阪○○店"<?=get_query_var('pet-shop')==='大阪○○店'?' selected':''?>>大阪○○店</option>
-          <option value="福岡△△店"<?=get_query_var('pet-shop')==='福岡△△店'?' selected':''?>>福岡△△店</option>
+          <option value="北海道○○店"<?php pet_checked('pet-shop', '北海道○○店', true)?>>北海道○○店</option>
+          <option value="東京△△店"<?php pet_checked('pet-shop', '東京△△店', true)?>>東京△△店</option>
+          <option value="愛知××店"<?php pet_checked('pet-shop', '愛知××店', true)?>>愛知××店</option>
+          <option value="大阪○○店"<?php pet_checked('pet-shop', '大阪○○店', true)?>>大阪○○店</option>
+          <option value="福岡△△店"<?php pet_checked('pet-shop', '福岡△△店', true)?>>福岡△△店</option>
         </select>
       </div>
       <!-- 毛色 -->
       <div class="p-search__wrapper">
         <div class="p-search__title">毛色（カスタムフィールドのタイプ：ラジオボタン）</div>
-        <label><input type="radio" name="pet-color" value="ホワイト系"<?=get_query_var('pet-color')==='ホワイト系'?' checked':''?>>ホワイト系</label>
-        <label><input type="radio" name="pet-color" value="クリーム系"<?=get_query_var('pet-color')==='クリーム系'?' checked':''?>>クリーム系</label>
-        <label><input type="radio" name="pet-color" value="グレー系"<?=get_query_var('pet-color')==='グレー系'?' checked':''?>>グレー系</label>
-        <label><input type="radio" name="pet-color" value="ブラウン系"<?=get_query_var('pet-color')==='ブラウン系'?' checked':''?>>ブラウン系</label>
-        <label><input type="radio" name="pet-color" value="キャリコ系"<?=get_query_var('pet-color')==='キャリコ系'?' checked':''?>>キャリコ系</label>
-        <label><input type="radio" name="pet-color" value="その他"<?=get_query_var('pet-color')==='その他'?' checked':''?>>その他</label>
+        <label><input type="radio" name="pet-color" value="ホワイト系"<?php pet_checked('pet-color', 'ホワイト系')?>>ホワイト系</label>
+        <label><input type="radio" name="pet-color" value="クリーム系"<?php pet_checked('pet-color', 'クリーム系')?>>クリーム系</label>
+        <label><input type="radio" name="pet-color" value="グレー系"<?php pet_checked('pet-color', 'グレー系')?>>グレー系</label>
+        <label><input type="radio" name="pet-color" value="ブラウン系"<?php pet_checked('pet-color', 'ブラウン系')?>>ブラウン系</label>
+        <label><input type="radio" name="pet-color" value="キャリコ系"<?php pet_checked('pet-color', 'キャリコ系')?>>キャリコ系</label>
+        <label><input type="radio" name="pet-color" value="その他"<?php pet_checked('pet-color', 'その他')?>>その他</label>
       </div>
       <!-- その他 -->
       <div class="p-search__wrapper">
         <div class="p-search__title">その他（カスタムフィールドのタイプ：チェックボックス）</div>
-        <label><input type="checkbox" name="pet-other[]" value="セール中"<?=get_query_var('pet-other')==='セール中'?' checked':''?>>セール中</label>
-        <label><input type="checkbox" name="pet-other[]" value="ワクチン接種済み"<?=get_query_var('pet-other')==='ワクチン接種済み'?' checked':''?>>ワクチン接種済み</label>
-        <label><input type="checkbox" name="pet-other[]" value="トリミング済み"<?=get_query_var('pet-other')==='トリミング済み'?' checked':''?>>トリミング済み</label>
-        <label><input type="checkbox" name="pet-other[]" value="セット料金あり"<?=get_query_var('pet-other')==='セット料金あり'?' checked':''?>>セット料金あり</label>
+        <label><input type="checkbox" name="pet-other[]" value="セール中" <?php pet_checkbox_checked('pet-other', 'セール中')?>>セール中</label>
+        <label><input type="checkbox" name="pet-other[]" value="ワクチン接種済" <?php pet_checkbox_checked('pet-other', 'ワクチン接種済')?>>ワクチン接種済</label>
+        <label><input type="checkbox" name="pet-other[]" value="トリミング済" <?php pet_checkbox_checked('pet-other', 'トリミング済')?>>トリミング済</label>
+        <label><input type="checkbox" name="pet-other[]" value="セット料金あり" <?php pet_checkbox_checked('pet-other', 'セット料金あり')?>>セット料金あり</label>
       </div>
       <?php wp_nonce_field('my-archive-nonce', 'nonce'); ?>
       <!-- 検索ボタン -->

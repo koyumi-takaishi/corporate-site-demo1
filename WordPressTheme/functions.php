@@ -196,10 +196,9 @@ add_filter( 'excerpt_more', 'my_excerpt_more' );
 remove_filter('the_excerpt', 'wpautop');
 
 
-////////////////////////////////
-// getの値を追加
-////////////////////////////////
-
+/**
+ * getの値を追加（絞り込み検索用）
+ */
 function add_query_vars_filter( $vars ){
   $vars[] = "foo";
   $vars[] = "pet_breed";
@@ -212,9 +211,9 @@ function add_query_vars_filter( $vars ){
 }
 add_filter( 'query_vars', 'add_query_vars_filter' );
 
-////////////////////////////////
-// アーカイブページにクエリを追加
-////////////////////////////////
+/**
+ * アーカイブページにクエリを追加（絞り込み検索用）
+ */
 add_action( 'pre_get_posts', 'add_archive_custom_query' ); // pre_get_postsにフック
 // フック時に使う関数
 function add_archive_custom_query( $query ) {
@@ -246,7 +245,6 @@ function add_archive_custom_query( $query ) {
       'relation' => 'AND'
     );
 
-		
 		// ペットの種類：ラジオボタン
     if(!empty($get_breed)) {
       array_push($meta_query, array(
@@ -259,18 +257,18 @@ function add_archive_custom_query( $query ) {
     // 性別：セレクトボックス
     if(!empty($get_gender)) {
       array_push($meta_query, array(
-        'key' => 'pet-gender', // metaキー
-        'value' => $get_gender, // 検索値
-        'compare' => '=' // 一致
+        'key' => 'pet-gender',
+        'value' => $get_gender,
+        'compare' => '='
       ));
     }
 
 		// 価格：セレクトボックス
     if(!empty($get_price)) {
       array_push($meta_query, array(
-        'key' => 'pet-price', // metaキー
-        'value' => $get_price, // 検索値
-        'compare' => '<=', // 一致
+        'key' => 'pet-price',
+        'value' => $get_price,
+        'compare' => '<=',
 				'type'=> 'NUMERIC'
       ));
     }
@@ -278,9 +276,9 @@ function add_archive_custom_query( $query ) {
     // 店舗：セレクトボックス
     if(!empty($get_shop)) {
       array_push($meta_query, array(
-        'key' => 'pet-shop', // metaキー
-        'value' => $get_shop, // 検索値
-        'compare' => '=' // 一致
+        'key' => 'pet-shop',
+        'value' => $get_shop,
+        'compare' => '='
       ));
     }
 
@@ -294,20 +292,45 @@ function add_archive_custom_query( $query ) {
     }
 
     // その他：チェックボックス
-    if(!empty($get_other)) {
-      array_push($meta_query, array(
-      'key' => 'pet-other',
-      'value' => $get_other,
-      'compare' => 'LIKE' // チェックボックスの場合はLIKE検索になるので注意
-      ));
-    }
+		if (!empty($get_other)) {
+			foreach ($get_other as $v) {
+				array_push($meta_query, array(
+					'key' => 'pet-other',
+					'value' => $v,
+					'compare' => 'LIKE'
+				));
+			}
+		}
 
     $query->set('meta_query', $meta_query);
 
-    // 検索やmeta_query以外にも、authorやカスタム投稿タイプ、カテゴリー、タクソノミーなど
-    // WP_Queryの各種パラメーターが使えます
-    // その他のクエリパラメータは以下参照下さい
-    // http://notnil-creative.com/blog/archives/1288
-
   }
+}
+
+
+/**
+ * 検索後もチェックがついたままにする記述（チェックボックス）
+ */
+function pet_checkbox_checked($var, $key)
+{
+	if (!empty(get_query_var($var))) {
+		if (in_array($key, get_query_var($var))) {
+				echo " checked";
+		}
+	}
+}
+
+
+/**
+ * 検索後もチェックがついたままにする記述（ラジオボタン、セレクトボックス）
+ */
+function pet_checked($var, $key, $is_select = false)
+{
+    if (get_query_var($var)===$key) {
+        if ($is_select) {
+            echo " selected";
+        } else {
+            echo " checked";
+        }
+    }
 }
