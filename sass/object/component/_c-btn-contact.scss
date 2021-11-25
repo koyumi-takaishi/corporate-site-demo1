@@ -5,6 +5,7 @@
   font-size: rem(20);
   letter-spacing: 0.1em;
   line-height: 1.45;
+  cursor: pointer;
   @include mq(tab) {
     width: rem(360);
     font-size: rem(16);

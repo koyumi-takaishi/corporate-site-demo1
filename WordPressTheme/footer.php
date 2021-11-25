@@ -5,6 +5,7 @@ $news = esc_url( home_url( '/news/' ) );
 $works = esc_url( home_url( '/works/' ) );
 $overview = esc_url( home_url( '/overview/' ) );
 $blog = esc_url( home_url( '/blog/' ) );
+$pet = esc_url( home_url( '/pet/' ) );
 $contact = esc_url( home_url( '/contact/' ) );
 ?>
 
@@ -47,6 +48,9 @@ $contact = esc_url( home_url( '/contact/' ) );
         </li>
         <li class="p-footer-nav__item">
           <a href="<?php echo $blog; ?>">ブログ</a>
+        </li>
+        <li class="p-footer-nav__item">
+          <a href="<?php echo $blog; ?>">ペット</a>
         </li>
         <li class="p-footer-nav__item">
           <a href="<?php echo $contact; ?>">お問い合わせ</a>

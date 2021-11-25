@@ -20,6 +20,7 @@
   $works = esc_url( home_url( '/works/' ) );
   $overview = esc_url( home_url( '/overview/' ) );
   $blog = esc_url( home_url( '/blog/' ) );
+  $pet = esc_url( home_url( '/pet/' ) );
   $contact = esc_url( home_url( '/contact/' ) );
   ?>
 
@@ -51,6 +52,9 @@
         </li>
         <li class="p-drawer__item">
           <a href="<?php echo $blog; ?>">ブログ</a>
+        </li>
+        <li class="p-drawer__item">
+          <a href="<?php echo $pet; ?>">ペット</a>
         </li>
         <li class="p-drawer__item p-drawer__item--contact">
           <a href="<?php echo $contact; ?>">お問い合わせ</a>

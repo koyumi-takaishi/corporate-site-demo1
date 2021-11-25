@@ -204,6 +204,7 @@ function add_query_vars_filter( $vars ){
   $vars[] = "foo";
   $vars[] = "pet_breed";
   $vars[] = "pet-gender";
+  $vars[] = "pet-price";
   $vars[] = "pet-shop";
   $vars[] = "pet-color";
   $vars[] = "pet-other";
@@ -230,6 +231,7 @@ function add_archive_custom_query( $query ) {
     $get_foo = get_query_var('foo');
     $get_breed = get_query_var('pet_breed');
     $get_gender = get_query_var('pet-gender');
+    $get_price = get_query_var('pet-price');
     $get_shop = get_query_var('pet-shop');
     $get_color = get_query_var('pet-color');
     $get_other = get_query_var('pet-other');
@@ -248,8 +250,8 @@ function add_archive_custom_query( $query ) {
 		// ペットの種類：ラジオボタン
     if(!empty($get_breed)) {
       array_push($meta_query, array(
-        'key' => 'pet_breed',
-        'value' => $get_breed,
+        'taxonomy' => 'pet_breed',
+        'terms' => $get_breed,
         'compare' => '='
       ));
     }
@@ -260,6 +262,16 @@ function add_archive_custom_query( $query ) {
         'key' => 'pet-gender', // metaキー
         'value' => $get_gender, // 検索値
         'compare' => '=' // 一致
+      ));
+    }
+
+		// 価格：セレクトボックス
+    if(!empty($get_price)) {
+      array_push($meta_query, array(
+        'key' => 'pet-price', // metaキー
+        'value' => $get_price, // 検索値
+        'compare' => '<=', // 一致
+				'type'=> 'NUMERIC'
       ));
     }
 

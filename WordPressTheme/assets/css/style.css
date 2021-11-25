@@ -502,6 +502,7 @@ select {
 
 .c-btn-contact {
 	background-color: #fff;
+	cursor: pointer;
 	font-size: 1.25rem;
 	letter-spacing: 0.1em;
 	line-height: 1.45;
@@ -1330,6 +1331,30 @@ select {
 
 .p-related-article__cards {
 	margin-top: 2rem;
+}
+
+.p-search {
+	border: 1px solid #fff;
+	margin: 0 auto;
+	padding: 1.25rem;
+}
+
+.p-search__main-title {
+	font-size: 1.25rem;
+	font-weight: bold;
+}
+
+.p-search__wrapper {
+	margin-top: 1.125rem;
+}
+
+.p-search__title {
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+.p-search__button {
+	margin-top: 1.125rem;
 }
 
 .p-section-title {
