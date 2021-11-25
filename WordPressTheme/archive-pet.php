@@ -90,7 +90,6 @@
         <label><input type="checkbox" name="pet-other[]" value="トリミング済" <?php pet_checkbox_checked('pet-other', 'トリミング済')?>>トリミング済</label>
         <label><input type="checkbox" name="pet-other[]" value="セット料金あり" <?php pet_checkbox_checked('pet-other', 'セット料金あり')?>>セット料金あり</label>
       </div>
-      <?php wp_nonce_field('my-archive-nonce', 'nonce'); ?>
       <!-- 検索ボタン -->
       <div class="p-search__button">
         <button type="submit" class="c-btn-contact">検索する</button>

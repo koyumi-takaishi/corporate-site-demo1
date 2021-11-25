@@ -219,12 +219,6 @@ add_action( 'pre_get_posts', 'add_archive_custom_query' ); // pre_get_postsに�
 function add_archive_custom_query( $query ) {
 	
   if ( !is_admin() && $query->is_main_query() && is_post_type_archive('pet') ) {
-		
-    // nonce検証
-    $nonce = $_REQUEST['nonce'];
-    if(!wp_verify_nonce($nonce, 'my-archive-nonce')) {
-      // die();
-    }
 
     // GETの引数を取得
     $get_foo = get_query_var('foo');
