@@ -60,6 +60,14 @@
   letter-spacing: 0.07142857em;
 }
 
+.p-card__price {
+  margin-top: rem(4);
+  padding: 0 rem(24);
+  font-size: rem(14);
+  line-height: 1.85714286;
+  letter-spacing: 0.07142857em;
+}
+
 .p-card__meta {
   display: flex;
   align-items: center;
@@ -79,4 +87,35 @@
   font-size: rem(14);
   line-height: 1.85714286;
   letter-spacing: 0.07142857em;
+}
+
+.p-card__pet-meta {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.p-card__pet-info {
+  display: inline-block;
+  font-size: rem(14);
+  padding: 0 rem(6);
+  line-height: rem(25);
+  color: #000;
+  margin-top: rem(10);
+  margin-right: rem(10);
+}
+
+.p-card__pet-info--breed {
+  background-color: $accent;
+}
+.p-card__pet-info--gender {
+  background-color: $accent-sub;
+}
+.p-card__pet-info--color {
+  background-color: #7fffd4;
+}
+.p-card__pet-info--shop {
+  background-color: #8a2be2;
+}
+.p-card__pet-info--other {
+  background-color: #9acd32;
 }

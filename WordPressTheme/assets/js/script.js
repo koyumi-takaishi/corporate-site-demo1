@@ -122,53 +122,14 @@ jQuery(function ($) {
     });
   });
 
-	/* スムーススクロール */
-	// jQuery('a[href^="#"]').click(function() {
-	// 	let header = jQuery(".js-header").height();
-	// 	let speed = 300;
-	// 	let id = jQuery(this).attr("href");
-	// 	let target = jQuery("#" == id ? "html" : id);
-	// 	let position = jQuery(target).offset().top - header;
-	// 	if ("fixed" !== jQuery("#header").css("position")) {
-	// 		position = jQuery(target).offset().top;
-	// 	}
-	// 	if (0 > position) {
-	// 		position = 0;
-	// 	}
-	// 	jQuery("html, body").animate(
-	// 		{
-	// 			scrollTop: position
-	// 		},
-	// 		speed
-	// 	);
-	// 	return false;
-	// });
-
-	// スクロール判定
-	// jQuery(window).on("scroll", function() {
-	// 	if (100 < jQuery(this).scrollTop()) {
-	// 		jQuery("body").attr("data-scroll", "true");
-	// 	} else {
-	// 		jQuery("body").attr("data-scroll", "false");
-	// 	}
-	// });
-
-	/* ドロワー */
-	// jQuery(".js-drawer").on("click", function(e) {
-	// 	e.preventDefault();
-	// 	let targetClass = jQuery(this).attr("data-target");
-	// 	jQuery("." + targetClass).toggleClass("is-checked");
-	// 	return false;
-	// });
-
-	/* 電話リンク */
-	// let ua = navigator.userAgent;
-	// if (ua.indexOf("iPhone") < 0 && ua.indexOf("Android") < 0) {
-	// 	jQuery('a[href^="tel:"]')
-	// 		.css("cursor", "default")
-	// 		.on("click", function(e) {
-	// 			e.preventDefault();
-	// 		});
-	// }
+	// 別ページへのアンカーリンクがヘッダーの高さ分ずれる時の対処
+	$(window).on('load', function() {
+		let headerHeight = $('.js-header').outerHeight();
+		let urlHash = location.hash;
+		if (urlHash) {
+			let position = $(urlHash).offset().top - headerHeight;
+			$('html, body').animate({ scrollTop: position }, 0);
+		}
+	});
 
 });

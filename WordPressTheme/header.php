@@ -13,7 +13,6 @@
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
 
-  <!-- 各ページリンク -->
   <?php
   $home = esc_url( home_url( '/' ) );
   $content = esc_url( home_url( '/content/' ) );
@@ -24,7 +23,7 @@
   $contact = esc_url( home_url( '/contact/' ) );
   ?>
 
-  <header class="p-header l-header <?php if(!(is_single())){echo "js-header-color-change";} ?> <?php if(is_single()){echo "color-change";} ?>">
+  <header id="header" class="p-header l-header js-header <?php if(!(is_single())){echo "js-header-color-change";} ?> <?php if(is_single()){echo "color-change";} ?>">
     <h1 class="p-header__logo">
       <a href="<?php echo $home; ?>"><img src="<?php echo get_template_directory_uri() ?>/assets/img/common/logo.svg" alt="企業ロゴ"></a>
     </h1>

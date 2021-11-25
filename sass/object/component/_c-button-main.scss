@@ -4,9 +4,10 @@
   font-size: rem(20);
   line-height: 1.45;
   border: 1px solid $text-color;
-  text-align: center;
   background-color: $text-sub;
+  text-align: center;
   @include mq(tab) {
+    display: inline-block;
     font-size: rem(16);
     width: rem(360);
     position: relative;
@@ -20,14 +21,14 @@
 .c-button-main:before {
   @include mq(tab) {
     content: '';
-    width: 100%;
+    width: 0;
+    display: block;
     height: 100%;
     position: absolute;
     z-index: -1;
     top: 0;
     left: 0;
     background-color: $text-color;
-    transform: translateX(-100%);
     transition: 0.3s ease-in-out;
   }
 }
@@ -42,6 +43,6 @@
 
 .c-button-main:hover:before {
   @include mq(tab) { 
-    transform: translateX(0);
+    width: 100%;
   }
 }

@@ -1,17 +1,3 @@
-<?php if( !(is_page('contact') || is_page('thanks')) || is_404() ): ?>
-  <section class="p-contact l-contact">
-    <div class="l-inner">
-      <div class="p-contact__title p-section-title">
-        <h2 class="p-section-title__main">お問い合わせ</h2>
-        <span class="p-section-title__sub">Contact</span>
-      </div>
-      <p class="p-contact__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-      <a class="c-button-main p-contact__button" href="<?php echo $blog; ?>">お問い合わせへ</a>
-    </div>
-  </section>
-<?php endif; ?>
-
-<!-- 各ページリンク -->
 <?php
 $home = esc_url( home_url( '/' ) );
 $content = esc_url( home_url( '/content/' ) );
@@ -21,6 +7,21 @@ $overview = esc_url( home_url( '/overview/' ) );
 $blog = esc_url( home_url( '/blog/' ) );
 $contact = esc_url( home_url( '/contact/' ) );
 ?>
+
+<?php if( !(is_page('contact') || is_page('thanks')) || is_404() ): ?>
+  <section class="p-contact l-contact">
+    <div class="l-inner">
+      <div class="p-contact__title p-section-title">
+        <h2 class="p-section-title__main">お問い合わせ</h2>
+        <span class="p-section-title__sub">Contact</span>
+      </div>
+      <p class="p-contact__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+      <div class="p-contact__button">
+        <a class="c-button-main" href="<?php echo $contact; ?>">お問い合わせへ</a>
+      </div>
+    </div>
+  </section>
+<?php endif; ?>
 
 <footer class="p-footer l-footer">
   <div class="p-footer__wrapper">  
@@ -55,8 +56,8 @@ $contact = esc_url( home_url( '/contact/' ) );
   </div>
   <div class="p-footer__copyright">&copy; 2021 CodeUps Inc.</div>
   <button class="c-page-top-button js-page-top-button">
-    <div class="c-page-top-button__img">
-    </div>
+    <span class="c-page-top-button__img">
+    </span>
   </button>
 </footer>
 

@@ -36,7 +36,7 @@
         <?php while (have_posts()) : the_post(); ?>
           <a class="p-works-cards__card p-works-card" href="<?php the_permalink(); ?>">
             <div class="p-works-card__img">
-              <?php the_post_thumbnail('full'); ?>
+              <?php the_post_thumbnail('full',array('alt' => the_title_attribute('echo=0'))); ?>
             </div>
             <span class="p-works-card__category"><?php
             $terms = get_the_terms($post->ID, 'works_category');

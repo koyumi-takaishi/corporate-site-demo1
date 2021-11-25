@@ -9,6 +9,7 @@
   margin-top: rem(48);
   @include mq(tab) {
     margin-top: 0;
+    width: calc(50% - #{rem(48)} * 1 / 2);
   }
 }
 

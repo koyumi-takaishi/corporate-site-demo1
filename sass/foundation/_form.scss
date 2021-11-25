@@ -100,34 +100,34 @@ select {
 }
 
 /* radio & checkbox */
-input[type="radio"],
-input[type="checkbox"] {
-	display: none;
-}
-input[type="radio"] + span,
-input[type="checkbox"] + span {
-	display: inline-block;
-	position: relative;
-	margin-left: 8px;
-	padding: 10px 20px;
-	color: #555;
-	font-size: 1.4rem;
-	text-align: center;
-	line-height: 1;
-	cursor: pointer;
-}
-input[type="radio"] + span::before,
-input[type="checkbox"] + span::before {
-	position: absolute;
-	top: 50%;
-	left: -8px;
-	width: 16px;
-	height: 16px;
-	content: "";
-	margin-top: -8px;
-	border: 1px solid #ccc;
-	background: #fff;
-}
+// input[type="radio"],
+// input[type="checkbox"] {
+// 	display: none;
+// }
+// input[type="radio"] + span,
+// input[type="checkbox"] + span {
+// 	display: inline-block;
+// 	position: relative;
+// 	margin-left: 8px;
+// 	padding: 10px 20px;
+// 	color: #555;
+// 	font-size: 1.4rem;
+// 	text-align: center;
+// 	line-height: 1;
+// 	cursor: pointer;
+// }
+// input[type="radio"] + span::before,
+// input[type="checkbox"] + span::before {
+// 	position: absolute;
+// 	top: 50%;
+// 	left: -8px;
+// 	width: 16px;
+// 	height: 16px;
+// 	content: "";
+// 	margin-top: -8px;
+// 	border: 1px solid #ccc;
+// 	background: #fff;
+// }
 
 /* fieldset */
 fieldset {

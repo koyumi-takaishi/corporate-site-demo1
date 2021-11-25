@@ -40,6 +40,18 @@ function change_posts_per_page($query) {
   if ( $query->is_post_type_archive('works') ) {
     $query->set( 'posts_per_page', '6' );
   }
+  if ( $query->is_post_type_archive('pet') ) {
+    $query->set( 'posts_per_page', '9' );
+  }
+	if ( $query->is_tax('pet_breed') ) { 	
+		$query->set( 'posts_per_page', '9' );
+	}
+	if ( $query->is_tax('blog_category') ) { 	
+		$query->set( 'posts_per_page', '9' );
+	}
+	if ( $query->is_tax('works_category') ) { 	
+		$query->set( 'posts_per_page', '6' );
+	}
 }
 add_action( 'pre_get_posts', 'change_posts_per_page' );
 
@@ -176,3 +188,115 @@ function my_excerpt_more( $more ) {
 
 }
 add_filter( 'excerpt_more', 'my_excerpt_more' );
+
+
+/**
+ * the_excerpt()に付与されるpタグを削除
+ */
+remove_filter('the_excerpt', 'wpautop');
+
+
+
+////////////////////////////////
+// getの値を追加
+////////////////////////////////
+
+function add_query_vars_filter( $vars ){
+  $vars[] = "foo";
+  $vars[] = "pet_breed";
+  $vars[] = "pet-gender";
+  $vars[] = "pet-shop";
+  $vars[] = "pet-color";
+  $vars[] = "pet-other";
+  return $vars;
+}
+add_filter( 'query_vars', 'add_query_vars_filter' );
+
+////////////////////////////////
+// アーカイブページにクエリを追加
+////////////////////////////////
+add_action( 'pre_get_posts', 'add_archive_custom_query' ); // pre_get_postsにフック
+// フック時に使う関数
+function add_archive_custom_query( $query ) {
+	
+  if ( !is_admin() && $query->is_main_query() && is_post_type_archive('pet') ) {
+		
+    // nonce検証
+    $nonce = $_REQUEST['nonce'];
+    if(!wp_verify_nonce($nonce, 'my-archive-nonce')) {
+      // die();
+    }
+
+    // GETの引数を取得
+    $get_foo = get_query_var('foo');
+    $get_breed = get_query_var('pet_breed');
+    $get_gender = get_query_var('pet-gender');
+    $get_shop = get_query_var('pet-shop');
+    $get_color = get_query_var('pet-color');
+    $get_other = get_query_var('pet-other');
+    
+    // 全文検索
+    if(!empty($get_foo)) {
+      $query->set('s', $get_foo);
+    }
+
+    // meta_query を追加
+    $meta_query = array(
+      'relation' => 'AND'
+    );
+
+		
+		// ペットの種類：ラジオボタン
+    if(!empty($get_breed)) {
+      array_push($meta_query, array(
+        'key' => 'pet_breed',
+        'value' => $get_breed,
+        'compare' => '='
+      ));
+    }
+
+    // 性別：セレクトボックス
+    if(!empty($get_gender)) {
+      array_push($meta_query, array(
+        'key' => 'pet-gender', // metaキー
+        'value' => $get_gender, // 検索値
+        'compare' => '=' // 一致
+      ));
+    }
+
+    // 店舗：セレクトボックス
+    if(!empty($get_shop)) {
+      array_push($meta_query, array(
+        'key' => 'pet-shop', // metaキー
+        'value' => $get_shop, // 検索値
+        'compare' => '=' // 一致
+      ));
+    }
+
+    // 毛色：ラジオボタン
+    if(!empty($get_color)) {
+      array_push($meta_query, array(
+        'key' => 'pet-color',
+        'value' => $get_color,
+        'compare' => '='
+      ));
+    }
+
+    // その他：チェックボックス
+    if(!empty($get_other)) {
+      array_push($meta_query, array(
+      'key' => 'pet-other',
+      'value' => $get_other,
+      'compare' => 'LIKE' // チェックボックスの場合はLIKE検索になるので注意
+      ));
+    }
+
+    $query->set('meta_query', $meta_query);
+
+    // 検索やmeta_query以外にも、authorやカスタム投稿タイプ、カテゴリー、タクソノミーなど
+    // WP_Queryの各種パラメーターが使えます
+    // その他のクエリパラメータは以下参照下さい
+    // http://notnil-creative.com/blog/archives/1288
+
+  }
+}

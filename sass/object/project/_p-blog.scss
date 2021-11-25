@@ -15,7 +15,8 @@
 
 .p-blog__button {
   margin-top: rem(24);
+  text-align: center;
   @include mq(tab) {
-    margin: rem(48) auto 0;
+    margin-top: rem(48);
   }
 }

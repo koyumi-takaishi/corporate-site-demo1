@@ -48,14 +48,13 @@
 .p-news__button:before {
   @include mq(tab) {
     content: '';
-    width: 100%;
+    width: 0;
     height: 100%;
     position: absolute;
     z-index: -1;
     top: 0;
     left: rem(-1);
     background-color: $text-sub;
-    transform: translateX(-100%);
     transition: 0.3s ease-in-out;
   }
 }
@@ -64,12 +63,11 @@
   @include mq(tab) {
     color: $text-color;
     transition: 0.3s ease-in-out;
-    
   }
 }
 
 .p-news__button:hover:before {
   @include mq(tab) {
-    transform: translateX(0);
+    width: 100%;
   }
 }

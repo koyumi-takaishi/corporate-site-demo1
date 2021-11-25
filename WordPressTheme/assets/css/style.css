@@ -96,37 +96,6 @@ select {
 
 /* radio & checkbox */
 
-input[type="radio"],
-input[type="checkbox"] {
-	display: none;
-}
-
-input[type="radio"] + span,
-input[type="checkbox"] + span {
-	color: #555;
-	cursor: pointer;
-	display: inline-block;
-	font-size: 1.4rem;
-	line-height: 1;
-	margin-left: 8px;
-	padding: 10px 20px;
-	position: relative;
-	text-align: center;
-}
-
-input[type="radio"] + span::before,
-input[type="checkbox"] + span::before {
-	background: #fff;
-	border: 1px solid #ccc;
-	content: "";
-	height: 16px;
-	left: -8px;
-	margin-top: -8px;
-	position: absolute;
-	top: 50%;
-	width: 16px;
-}
-
 /* fieldset */
 
 fieldset {
@@ -314,6 +283,10 @@ input[type="checkbox"]:disabled + span::before {
 
 html {
 	font-size: 4.26667vw;
+}
+
+html {
+	-webkit-font-smoothing: antialiased;
 }
 
 html,
@@ -650,7 +623,7 @@ select {
 }
 
 .p-404__button {
-	margin: 0 auto;
+	text-align: center;
 }
 
 .p-blog__cards {
@@ -659,6 +632,7 @@ select {
 
 .p-blog__button {
 	margin-top: 1.5rem;
+	text-align: center;
 }
 
 .p-breadcrumb {
@@ -722,6 +696,14 @@ select {
 	margin-top: 0.25rem;
 }
 
+.p-card__price {
+	font-size: 0.875rem;
+	letter-spacing: 0.07142857em;
+	line-height: 1.85714286;
+	margin-top: 0.25rem;
+	padding: 0 1.5rem;
+}
+
 .p-card__meta {
 	align-items: center;
 	display: flex;
@@ -743,6 +725,41 @@ select {
 	line-height: 1.85714286;
 }
 
+.p-card__pet-meta {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.p-card__pet-info {
+	color: #000;
+	display: inline-block;
+	font-size: 0.875rem;
+	line-height: 1.5625rem;
+	margin-right: 0.625rem;
+	margin-top: 0.625rem;
+	padding: 0 0.375rem;
+}
+
+.p-card__pet-info--breed {
+	background-color: #F9F871;
+}
+
+.p-card__pet-info--gender {
+	background-color: #FFBA6A;
+}
+
+.p-card__pet-info--color {
+	background-color: #7fffd4;
+}
+
+.p-card__pet-info--shop {
+	background-color: #8a2be2;
+}
+
+.p-card__pet-info--other {
+	background-color: #9acd32;
+}
+
 .p-cards__card:not(:first-child),
 .p-cards__card--related:not(:first-child) {
 	margin-top: 1.5rem;
@@ -754,6 +771,7 @@ select {
 
 .p-category__link {
 	display: inline-block;
+	font-size: 1rem;
 	letter-spacing: 0.125em;
 	line-height: 1.4375;
 	margin-right: 2.5rem;
@@ -778,6 +796,7 @@ select {
 
 .p-contact__button {
 	margin-top: 2.5rem;
+	text-align: center;
 }
 
 .p-content {
@@ -969,6 +988,11 @@ select {
 	background-size: cover;
 	height: 1.875rem;
 	width: 1.875rem;
+}
+
+.p-gallery__slider .swiper-button-next::after,
+.p-gallery__slider .swiper-button-prev::after {
+	content: none !important;
 }
 
 .p-gallery__thumbs {
@@ -1270,6 +1294,10 @@ select {
 	padding: 0 0.5rem;
 }
 
+.p-pagenavi .wp-pagenavi a:hover {
+	border-color: initial;
+}
+
 .p-post-links {
 	text-align: center;
 }
@@ -1416,6 +1444,10 @@ select {
 	content: counter(item);
 	counter-increment: item;
 	padding-right: 0.75rem;
+}
+
+.p-single {
+	overflow-x: hidden;
 }
 
 .p-single__inner {
@@ -1614,6 +1646,10 @@ textarea.wpcf7-not-valid {
 	width: 540px;
 }
 
+.p-sub-overview {
+	overflow-x: hidden;
+}
+
 .p-sub-overview__map {
 	margin: 7.5rem calc(50% - 50vw) 0;
 	position: relative;
@@ -1643,6 +1679,7 @@ textarea.wpcf7-not-valid {
 	height: inherit;
 	margin: 0 auto;
 	max-width: 100%;
+	overflow-x: hidden;
 	width: 1150px;
 }
 
@@ -1672,7 +1709,7 @@ textarea.wpcf7-not-valid {
 }
 
 .p-thanks__button {
-	margin: 0 auto;
+	text-align: center;
 }
 
 .p-works-card {
@@ -1956,6 +1993,7 @@ html {
 }
 
 .c-button-main {
+	display: inline-block;
 	font-size: 1rem;
 	line-height: 3.375rem;
 	overflow: hidden;
@@ -1968,13 +2006,13 @@ html {
 .c-button-main:before {
 	background-color: #fff;
 	content: '';
+	display: block;
 	height: 100%;
 	left: 0;
 	position: absolute;
 	top: 0;
-	transform: translateX(-100%);
 	transition: 0.3s ease-in-out;
-	width: 100%;
+	width: 0;
 	z-index: -1;
 }
 
@@ -1984,7 +2022,7 @@ html {
 }
 
 .c-button-main:hover:before {
-	transform: translateX(0);
+	width: 100%;
 }
 
 .c-content-text--center {
@@ -2044,7 +2082,7 @@ html {
 }
 
 .p-blog__button {
-	margin: 3rem auto 0;
+	margin-top: 3rem;
 }
 
 .p-breadcrumb a {
@@ -2066,11 +2104,11 @@ html {
 }
 
 .p-cards__card {
-	width: 31.77%;
+	width: calc(33.3% - 1.5625rem * 2 /3);
 }
 
 .p-cards__card--related {
-	width: 22.7%;
+	width: calc(25% - 2.0625rem * 3 / 4);
 }
 
 .p-cards__card:not(:nth-child(3n)) {
@@ -2113,7 +2151,7 @@ html {
 }
 
 .p-contact__button {
-	margin: 3.8125rem auto 0;
+	margin-top: 3.8125rem;
 }
 
 .p-content::before {
@@ -2277,9 +2315,9 @@ html {
 }
 
 .p-gallery__inner {
+	max-width: 850px;
 	padding-left: 25px;
 	padding-right: 25px;
-	width: 850px;
 }
 
 .p-gallery__slider .swiper-slide::before {
@@ -2376,9 +2414,8 @@ html {
 	left: -0.0625rem;
 	position: absolute;
 	top: 0;
-	transform: translateX(-100%);
 	transition: 0.3s ease-in-out;
-	width: 100%;
+	width: 0;
 	z-index: -1;
 }
 
@@ -2388,7 +2425,7 @@ html {
 }
 
 .p-news__button:hover:before {
-	transform: translateX(0);
+	width: 100%;
 }
 
 .p-overview-content {
@@ -2538,6 +2575,15 @@ html {
 
 .p-single__meta {
 	margin-top: 1.375rem;
+}
+
+.p-single__category--blog {
+	transition: .3s ease-in-out;
+}
+
+.p-single__category--blog:hover {
+	background-color: #fff;
+	color: #333;
 }
 
 .p-single__field {
@@ -2706,6 +2752,7 @@ html {
 
 .p-works-cards__card {
 	margin-top: 0;
+	width: calc(50% - 3rem * 1 / 2);
 }
 
 .p-works-cards__card:nth-of-type(2n+1) {

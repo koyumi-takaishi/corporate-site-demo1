@@ -9,7 +9,7 @@
 	width: 100%;
 	height: inherit;
 	@include mq(tab) {
-		width: 850px;
+		max-width: 850px;
 		padding-right: $padding-pc;
 		padding-left: $padding-pc;
 	}
@@ -62,6 +62,10 @@
     width: rem(50);
     height: rem(50);
   }
+}
+.p-gallery__slider .swiper-button-next::after,
+.p-gallery__slider .swiper-button-prev::after {
+  content: none !important;
 }
 
 //サムネイル

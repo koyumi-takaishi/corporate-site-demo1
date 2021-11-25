@@ -109,7 +109,7 @@ $contact = esc_url(home_url('/contact/'));
                 <div class="swiper-slide">
                   <div class="slide-img">
                     <?php $works_query->the_post(); ?>
-                    <?php the_post_thumbnail('full'); ?>
+                    <?php the_post_thumbnail('full',array('alt' => the_title_attribute('echo=0'))); ?>
                   </div>
                 </div>
               <?php endwhile; ?>
@@ -123,7 +123,9 @@ $contact = esc_url(home_url('/contact/'));
       <div class="p-works__content p-works-content">
         <h3 class="p-works-content__title">メインタイトルが入ります。</h3>
         <p class="p-works-content__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-        <a class="c-button-main p-works-content__button" href="<?php echo $works; ?>">詳しく見る</a>
+        <div class="p-works-content__button">
+          <a class="c-button-main" href="<?php echo $works; ?>">詳しく見る</a>
+        </div>
       </div>
     </div>
   </div>
@@ -144,7 +146,9 @@ $contact = esc_url(home_url('/contact/'));
       <div class="p-overview__content p-overview-content">
         <h3 class="p-overview-content__title">メインタイトルが入ります。</h3>
         <p class="p-overview-content__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-        <a class="c-button-main p-overview-content__button" href="<?php echo $overview; ?>">詳しく見る</a>
+        <div class="p-overview-content__button">
+          <a class="c-button-main" href="<?php echo $overview; ?>">詳しく見る</a>
+        </div>
       </div>
     </div>
   </div>
@@ -170,11 +174,10 @@ $contact = esc_url(home_url('/contact/'));
           <?php $works_query->the_post(); ?>
           <a class="p-cards__card p-card" href="<?php the_permalink(); ?>">
             <div class="p-card__img">
-              <?php the_post_thumbnail('full'); ?>
+              <?php the_post_thumbnail('full',array('alt' => the_title_attribute('echo=0'))); ?>
             </div>
             <div class="p-card__title"><?php the_title(); ?></div>
             <div class="p-card__box">
-              <!-- 記事の抜粋を表示、５５文字まで！！ -->
               <p class="p-card__excerpt"><?php echo get_the_excerpt() ?></p>
               <div class="p-card__meta">
                 <span class="p-card__category"><?php
@@ -191,7 +194,9 @@ $contact = esc_url(home_url('/contact/'));
       <?php endif; ?>
       <?php wp_reset_postdata(); ?>
     </div>
-    <a class="c-button-main p-blog__button" href="<?php echo $blog; ?>">詳しく見る</a>
+    <div class="p-blog__button">
+      <a class="c-button-main" href="<?php echo $blog; ?>">詳しく見る</a>
+    </div>
   </div>
 </section>
 
